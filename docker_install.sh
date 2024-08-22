@@ -14,7 +14,7 @@ sudo yum remove docker docker-client docker-client-latest docker-common docker-l
 sudo yum install -y yum-utils
 sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 sudo yum update
-sudo yum install docker-ce docker-ce-cli containerd.io
+sudo yum install docker-ce docker-ce-cli containerd.io -y
 sudo systemctl enable docker
 sudo systemctl start docker
 
@@ -24,7 +24,7 @@ sudo yum install -y yum-utils
 sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 sudo sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.repos.d/docker-ce.repo
 sudo yum update
-sudo yum install docker-ce docker-ce-cli containerd.io
+sudo yum install docker-ce docker-ce-cli containerd.io -y
 sudo systemctl enable docker
 sudo systemctl start docker
 #==============================================================
@@ -32,7 +32,7 @@ sudo systemctl start docker
 #==============================================================
 sudo apt-get remove docker docker-engine docker.io
 sudo apt-get update
-sudo apt-get install apt-transport-https ca-certificates  curl gnupg lsb-release
+sudo apt-get install apt-transport-https ca-certificates  curl gnupg lsb-release -y
 curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 # 官方源
 # $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -41,7 +41,7 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] 
 # 官方源
 # echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 $ sudo systemctl enable docker
 $ sudo systemctl start docker
 
