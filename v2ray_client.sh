@@ -6,3 +6,9 @@ wget -O config.json "https://fecmkg.ph.files.1drv.com/y4mCDSV64ekOYbsT8TnNK_9SH8
 sudo cp config.json /usr/local/etc/v2ray/
 sudo systemctl start v2ray
 sudo systemctl enable v2ray
+cat >> /etc/profile <<EOF
+export http_proxy="http://127.0.0.1:10809"
+export https_proxy="http://127.0.0.1:10809"
+EOF
+env | grep proxy
+echo 'v2ray is configured, please "source /etc/profile"'
