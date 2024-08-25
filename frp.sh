@@ -46,6 +46,7 @@ WantedBy=multi-user.target
 EOF
 sudo systemctl daemon-reload
 sudo systemctl start frpc
+sudo systemctl enable frpc
 }
 
 function frp_server(){
@@ -74,6 +75,7 @@ EOF
 
 sudo systemctl daemon-reload
 sudo systemctl start frps
+sudo systemctl enable frps
 }
 
 if [ $FRP -eq 1 ]; then
