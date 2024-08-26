@@ -7,8 +7,17 @@ sudo cp config.json /usr/local/etc/v2ray/
 sudo systemctl start v2ray
 sudo systemctl enable v2ray
 sudo tee -a /etc/profile <<EOF
-export http_proxy="http://127.0.0.1:10809"
-export https_proxy="http://127.0.0.1:10809"
+function von(){
+  export http_proxy="http://127.0.0.1:10809"
+  export https_proxy="http://127.0.0.1:10809"
+  echo "v2ray proxy is ON"
+}
+
+function voff(){
+  unset https_proxy
+  unset http_proxy
+  echo "v2ray proxy is OFF"
+}
 EOF
 env | grep proxy
 echo 'v2ray is configured, please "source /etc/profile"'
