@@ -2,8 +2,17 @@ import = [
     "~/.config/alacritty/themes/themes/hyper.toml"
 ]
 
+# font_family = "Mononoki Nerd Font"
+# font_size = "20"
+
+
 [font]
-size = 14.0
+size = 18
+# normal = { family = "%font_family", style = "Regular" }
+# bold = { family = "%font_family", style = "Bold" }
+# italic = { family = "%font_family", style = "Italic" }
+# bold_italic = { family = "%font_family", style = "Bold Italic" }
+# size = 20
 
 [font.bold]
 family = "Mononoki Nerd Font"
@@ -22,11 +31,11 @@ family = "Mononoki Nerd Font"
 style = "Regular"
 
 [window]
-dimensions = { columns = 80, lines = 24 }
-padding = { x = 10, y = 10 }
-decorations = "None"
+dimensions = { columns = 120, lines = 36 }
+padding = { x = 0, y = 0 }
+decorations = "Full"
 dynamic_padding = true
-opacity = 0.9
+opacity = 1
 
 [cursor]
 style = { shape = "Block", blinking = "Always" }
