@@ -8,8 +8,8 @@ function alacritty_install() {
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   source "$HOME/.cargo/env"
 
-  git clone https://github.com/alacritty/alacritty.git
-  cd alacritty
+  git clone https://github.com/alacritty/alacritty.git $HOME
+  cd $HOME/alacritty
 
   sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 -y
   cargo build --release
@@ -19,6 +19,8 @@ function alacritty_install() {
   sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
   sudo desktop-file-install extra/linux/Alacritty.desktop
   sudo update-desktop-database
+
+  rm -rf $HOME/alacritty
 }
 
 function alacritty_config() {
@@ -36,6 +38,9 @@ function main() {
 
   alacritty_install
   alacritty_config
+  echo "=========================="
+  echo "  alacritty is installed"
+  echo "=========================="
 
 }
 
