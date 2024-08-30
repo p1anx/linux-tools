@@ -131,6 +131,10 @@ function main() {
     echo "please run the script to choose again"
     exit
   fi
+  #for current user, add the docker group to run "docker" without "sudo"
+  sudo groupadd docker
+  sudo usermod -aG docker $USER # after, maybe need to login out
+  newgrp docker
 }
 #=========================
 main

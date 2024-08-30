@@ -1,13 +1,15 @@
 import = [
     "~/.config/alacritty/themes/themes/hyper.toml"
 ]
-
+[shell]
+program = "/bin/zsh"
+args = ["-l"]
 # font_family = "Mononoki Nerd Font"
 # font_size = "20"
 
 
 [font]
-size = 16
+size = 14
 # normal = { family = "%font_family", style = "Regular" }
 # bold = { family = "%font_family", style = "Bold" }
 # italic = { family = "%font_family", style = "Italic" }
@@ -35,12 +37,14 @@ dimensions = { columns = 120, lines = 36 }
 padding = { x = 0, y = 0 }
 decorations = "Full"
 dynamic_padding = true
+blur = true
+startup_mode = "Windowed" # "Maximized" "Fullscreen" "SimpleFullscreen"
 opacity = 1
 
 [cursor]
-style = { shape = "Block", blinking = "Always" }
+style = { shape = "Underline", blinking = "Always" } #"Block" "Underline", "Beam"
 vi_mode_style = "None"
-# blink_interval = 500
+blink_interval = 500
 # blink_timeout = 0
 # thickness = 0.1
 
