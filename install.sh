@@ -77,6 +77,9 @@ function handle_selection {
     13)
       fastfetch
       ;;
+    14)
+      source
+      ;;
     99)
       echo "退出脚本。"
       exit 0
@@ -93,7 +96,7 @@ function main() {
   DIR="$(pwd)"
   options=("all install" "alacritty" "docker" "git and lazygit" "nerd fonts"
     "tmux" "neovim" "vim" "fzf" "zsh" "miniconda"
-    "p10k" "fastfetch")
+    "p10k" "fastfetch" "source_cn")
   source "$DIR"/alacritty/alacritty.sh
   source "$DIR"/docker/docker.sh
   source "$DIR"/nerd_fonts.sh
@@ -107,6 +110,7 @@ function main() {
   source "$DIR"/p10k/p10k.sh
   source "$DIR"/git/lazygit.sh
   source "$DIR"/git/github_ssh.sh
+  source "$DIR"/source.sh
 
   # 指定包含脚本的目录
   # git_dir="$DIR/git"
