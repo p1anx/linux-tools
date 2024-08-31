@@ -34,7 +34,7 @@ function alacritty_config() {
   cp alacritty.toml ~/.config/alacritty/
 }
 
-function main() {
+function alacritty() {
 
   alacritty_install
   alacritty_config
@@ -43,5 +43,3 @@ function main() {
   echo "=========================="
 
 }
-
-main

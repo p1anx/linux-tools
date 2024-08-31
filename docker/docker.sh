@@ -83,7 +83,7 @@ EOF
 
 }
 
-function main() {
+function docker() {
 
   # whether enable the proxy for docker
   echo "Do you want to set the proxy or mirror for docker?"
@@ -137,5 +137,4 @@ function main() {
   newgrp docker
 }
 #=========================
-main
 #=========================
