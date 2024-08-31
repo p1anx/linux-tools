@@ -7,14 +7,14 @@ function alacritty_install() {
     sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 -y
   elif grep -q "rocky" /etc/os-release; then
     sudo dnf update
-    sudo dnf install cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel
-    sudo dnf group install "Development Tools"
+    sudo dnf install cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel -y
+    sudo dnf group install "Development Tools" -y
   else
     echo "The system is not supported"
     exit
   fi
 
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain stable -y
   source "$HOME/.cargo/env"
 
   local tmp_dir="$HOME/alacritty"

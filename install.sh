@@ -26,10 +26,19 @@ function handle_selection {
   for choice in "${choices[@]}"; do
     case $choice in
     1)
+      zsh
+      p10k
       alacritty
       docker
       lazygit
-
+      github_ssh
+      nerd_fonts
+      tmux
+      nvim
+      vim
+      fzf
+      miniconda
+      fastfetch
       ;;
     2)
       alacritty
@@ -65,6 +74,9 @@ function handle_selection {
     12)
       p10k
       ;;
+    13)
+      fastfetch
+      ;;
     99)
       echo "退出脚本。"
       exit 0
@@ -79,8 +91,9 @@ function handle_selection {
 function main() {
 
   DIR="$(pwd)"
-  options=("All install" "Alacritty" "Docker" "Git and Lazygit" "Nerd fonts"
-    "tmux" "neovim" "vim" "fzf" "zsh" "miniconda" "p10k")
+  options=("all install" "alacritty" "docker" "git and lazygit" "nerd fonts"
+    "tmux" "neovim" "vim" "fzf" "zsh" "miniconda"
+    "p10k" "fastfetch")
   source "$DIR"/alacritty/alacritty.sh
   source "$DIR"/docker/docker.sh
   source "$DIR"/nerd_fonts.sh
@@ -89,6 +102,7 @@ function main() {
   source "$DIR"/editor/vim.sh
   source "$DIR"/terminal/fzf.sh
   source "$DIR"/terminal/zsh.sh
+  source "$DIR"/terminal/fastfetch.sh
   source "$DIR"/python/miniconda.sh
   source "$DIR"/p10k/p10k.sh
   source "$DIR"/git/lazygit.sh
