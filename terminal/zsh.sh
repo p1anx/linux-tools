@@ -11,7 +11,6 @@ function zsh_ubuntu() {
   local proxy_check=$(env | grep proxy)
   if ! echo "$proxy_check" | grep -q "proxy"; then
     echo "=======please open proxy========"
-    pon
   fi
   sh -c "$(curl -fsSL https://gitee.com/shmhlsy/oh-my-zsh-install.sh/raw/master/install.sh)"
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -38,7 +37,6 @@ function zsh_rocky() {
   local proxy_check=$(env | grep proxy)
   if ! echo "$proxy_check" | grep -q "proxy"; then
     echo "=======please open proxy========"
-    pon
   fi
   sh -c "$(curl -fsSL https://gitee.com/shmhlsy/oh-my-zsh-install.sh/raw/master/install.sh)"
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -52,6 +50,7 @@ function zsh_rocky() {
     echo "zsh failed"
   fi
 }
+
 function zsh() {
 
   if grep -q "ubuntu" /etc/os-release; then

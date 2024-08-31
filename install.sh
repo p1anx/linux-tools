@@ -55,6 +55,15 @@ function handle_selection {
     9)
       fzf
       ;;
+    10)
+      zsh
+      ;;
+    11)
+      miniconda
+      ;;
+    12)
+      p10k
+      ;;
     99)
       echo "退出脚本。"
       exit 0
@@ -70,14 +79,16 @@ function main() {
 
   DIR="$(pwd)"
   options=("All install" "Alacritty" "Docker" "Git and Lazygit" "Nerd fonts"
-    "tmux" "neovim" "vim" "fzf" "安装 PHP" "全部安装" "退出")
+    "tmux" "neovim" "vim" "fzf" "zsh" "miniconda" "退出")
   source "$DIR"/alacritty/alacritty.sh
   source "$DIR"/docker/docker.sh
   source "$DIR"/nerd_fonts.sh
   source "$DIR"/tmux/tmux.sh
-  source "$DIR"/nvim.sh
-  source "$DIR"/vim.sh
-  source "$DIR"/fzf.sh
+  source "$DIR"/editor/nvim.sh
+  source "$DIR"/editor/vim.sh
+  source "$DIR"/terminal/fzf.sh
+  source "$DIR"/python/miniconda.sh
+  source "$DIR"/p10k/p10k.sh
 
   # 指定包含脚本的目录
   git_dir="$DIR/git"
