@@ -2,18 +2,26 @@
 local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 function alacritty_install() {
-  sudo apt update
+  if grep -q "ubuntu" /etc/os-release; then
+    sudo apt update
+    sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 -y
+  elif grep -q "rocky" /etc/os-release; then
+    sudo dnf update
+    sudo dnf install cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel
+    sudo dnf group install "Development Tools"
+  else
+    echo "The system is not supported"
+    exit
+  fi
 
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   source "$HOME/.cargo/env"
 
   local tmp_dir="$HOME/alacritty"
   # mkdir -p $tmp_dir
   git clone https://github.com/alacritty/alacritty.git $tmp_dir
-
   cd $tmp_dir
 
-  sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 -y
   cargo build --release
 
   #set desktop entry for alacritty
