@@ -43,6 +43,18 @@ function handle_selection {
     5)
       nerd_fonts
       ;;
+    6)
+      tmux
+      ;;
+    7)
+      nvim
+      ;;
+    8)
+      vim
+      ;;
+    9)
+      fzf
+      ;;
     99)
       echo "退出脚本。"
       exit 0
@@ -58,11 +70,25 @@ function main() {
 
   DIR="$(pwd)"
   options=("All install" "Alacritty" "Docker" "Git and Lazygit" "Nerd fonts"
-    "安装 Node.js" "安装 Java" "安装 MySQL" "安装 PHP" "全部安装" "退出")
+    "tmux" "neovim" "vim" "fzf" "安装 PHP" "全部安装" "退出")
   source "$DIR"/alacritty/alacritty.sh
   source "$DIR"/docker/docker.sh
-  source "$DIR"/git/*.sh
   source "$DIR"/nerd_fonts.sh
+  source "$DIR"/tmux/tmux.sh
+  source "$DIR"/nvim.sh
+  source "$DIR"/vim.sh
+  source "$DIR"/fzf.sh
+
+  # 指定包含脚本的目录
+  git_dir="$DIR/git"
+  # 遍历并加载目录中的所有脚本文件
+  for script in "$git_dir"/*.sh; do
+    if [ -f "$script" ]; then
+      echo "加载脚本: $script"
+      source "$script"
+    fi
+  done
+
   print_menu
   # 处理用户选择的函数
   handle_selection

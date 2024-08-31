@@ -90,10 +90,19 @@ function docker() {
   echo "(1) proxy"
   echo "(2) mirror"
   read -p "Enter the number 1 or 2: " PROXY
+  # 检查docker命令是否存在
+  if command -v docker &>/dev/null; then
+    echo "Docker 已安装"
 
-  if command -v docker >/dev/null 2>&1; then
-    echo "docker is installed"
+    # 检查Docker服务是否正常运行
+    if systemctl is-active --quiet docker; then
+      echo "Docker 服务正在运行"
+    else
+      echo "Docker 服务未运行"
+    fi
+    exit 0
   else
+    echo "Docker 未安装"
     #judge the system type
     if grep -q "ubuntu" /etc/os-release; then
       docker_for_ubuntu
@@ -108,20 +117,6 @@ function docker() {
       exit
     fi
   fi
-
-  #according to ostype, install docker
-  # case $OSType in
-  # "ubuntu")
-  #   docker_for_ubuntu
-  #   ;;
-  # "rocky")
-  #   docker_for_rocky
-  #   ;;
-  # *)
-  #   echo "The system is not supported"
-  #   exit
-  #   ;;
-  # esac
 
   if [ $PROXY -eq 1 ]; then
     docker_proxy

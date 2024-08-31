@@ -7,16 +7,19 @@ function alacritty_install() {
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   source "$HOME/.cargo/env"
 
-  git clone https://github.com/alacritty/alacritty.git $HOME
+  local tmp_dir="$HOME/alacritty"
+  # mkdir -p $tmp_dir
+  git clone https://github.com/alacritty/alacritty.git $tmp_dir
+
+  cd $tmp_dir
 
   sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 -y
   cargo build --release
 
-  local tmp_dir="$HOME/alacritty"
   #set desktop entry for alacritty
-  sudo cp "$tmp_dir"/target/release/alacritty /usr/local/bin # or anywhere else in $PATH
-  sudo cp "$tmp_dir"/extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-  sudo desktop-file-install "$tmp_dir"/extra/linux/Alacritty.desktop
+  sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
+  sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+  sudo desktop-file-install extra/linux/Alacritty.desktop
   sudo update-desktop-database
 
 }
