@@ -87,18 +87,21 @@ function main() {
   source "$DIR"/editor/nvim.sh
   source "$DIR"/editor/vim.sh
   source "$DIR"/terminal/fzf.sh
+  source "$DIR"/terminal/zsh.sh
   source "$DIR"/python/miniconda.sh
   source "$DIR"/p10k/p10k.sh
+  source "$DIR"/git/lazygit.sh
+  source "$DIR"/git/github_ssh.sh
 
   # 指定包含脚本的目录
-  git_dir="$DIR/git"
-  # 遍历并加载目录中的所有脚本文件
-  for script in "$git_dir"/*.sh; do
-    if [ -f "$script" ]; then
-      echo "加载脚本: $script"
-      source "$script"
-    fi
-  done
+  # git_dir="$DIR/git"
+  # # 遍历并加载目录中的所有脚本文件
+  # for script in "$git_dir"/*.sh; do
+  #   if [ -f "$script" ]; then
+  #     echo "加载脚本: $script"
+  #     source "$script"
+  #   fi
+  # done
 
   print_menu
   # 处理用户选择的函数
