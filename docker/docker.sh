@@ -97,21 +97,26 @@ function docker() {
     # 检查Docker服务是否正常运行
     if systemctl is-active --quiet docker; then
       echo "Docker 服务正在运行"
+      exit 0
     else
       echo "Docker 服务未运行"
+      #judge the system type
+      if grep -q "ubuntu" /etc/os-release; then
+        docker_for_ubuntu
+      elif grep -q "rocky" /etc/os-release; then
+        docker_for_rocky
+      else
+        echo "The system is not supported"
+        exit
+      fi
     fi
-    exit 0
   else
     echo "Docker 未安装"
     #judge the system type
     if grep -q "ubuntu" /etc/os-release; then
       docker_for_ubuntu
-      # OSType="ubuntu"
     elif grep -q "rocky" /etc/os-release; then
       docker_for_rocky
-      # OSType="rocky"
-      # elif grep -q "arch linux" /etc/os-release; then
-      # OSType="arch linux"
     else
       echo "The system is not supported"
       exit

@@ -21,7 +21,7 @@ function alacritty_install() {
   sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
   sudo desktop-file-install extra/linux/Alacritty.desktop
   sudo update-desktop-database
-
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 }
 
 function alacritty_config() {

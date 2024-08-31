@@ -35,10 +35,11 @@ function handle_selection {
       alacritty
       ;;
     3)
-      docker
+      echo "2" | docker #"2" means to use mirror install docker in default
       ;;
     4)
       lazygit
+      github_ssh
       ;;
     5)
       nerd_fonts
@@ -79,7 +80,7 @@ function main() {
 
   DIR="$(pwd)"
   options=("All install" "Alacritty" "Docker" "Git and Lazygit" "Nerd fonts"
-    "tmux" "neovim" "vim" "fzf" "zsh" "miniconda" "退出")
+    "tmux" "neovim" "vim" "fzf" "zsh" "miniconda" "p10k")
   source "$DIR"/alacritty/alacritty.sh
   source "$DIR"/docker/docker.sh
   source "$DIR"/nerd_fonts.sh
