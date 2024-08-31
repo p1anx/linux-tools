@@ -7,6 +7,7 @@ function tmux() {
   elif grep -q "rocky" /etc/os-release; then
     sudo yum update
     sudo yum install tmux -y
+    sudo yum install perl -y
   else
     echo "The system is not supported"
     exit

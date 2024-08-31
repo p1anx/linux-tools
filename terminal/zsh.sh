@@ -12,9 +12,22 @@ function zsh_ubuntu() {
   if ! echo "$proxy_check" | grep -q "proxy"; then
     echo "=======please open proxy========"
   fi
-  sh -c "$(curl -fsSL https://gitee.com/shmhlsy/oh-my-zsh-install.sh/raw/master/install.sh)"
+  # sh -c "$(curl -fsSL https://gitee.com/shmhlsy/oh-my-zsh-install.sh/raw/master/install.sh)"
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  sudo tee -a ~/.zshrc <<EOF
+function von(){
+  export http_proxy="http://127.0.0.1:10809"
+  export https_proxy="http://127.0.0.1:10809"
+  echo "v2ray proxy is ON"
+}
+
+function voff(){
+  unset https_proxy
+  unset http_proxy
+  echo "v2ray proxy is OFF"
+}
+EOF
   if [ -f "$HOME/.zshrc" ]; then
     echo 'ZSH_THEME="bira"' >>~/.zshrc
     echo 'plugins=(git z extract web-search zsh-syntax-highlighting zsh-autosuggestions)' >>~/.zshrc
