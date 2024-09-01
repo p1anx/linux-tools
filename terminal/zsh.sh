@@ -7,7 +7,7 @@ function oh_my_zsh() {
   sh -c "$(curl -fsSL https://gitee.com/shmhlsy/oh-my-zsh-install.sh/raw/master/install.sh)"
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-  sudo tee -a ~/.zshrc <<EOF
+  sudo tee -a $HOME/.zshrc <<EOF
 function von(){
   export http_proxy="http://127.0.0.1:10809"
   export https_proxy="http://127.0.0.1:10809"
@@ -38,9 +38,10 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --margin=1 --pad
 
 EOF
   if [ -f "$HOME/.zshrc" ]; then
-    echo 'ZSH_THEME="bira"' >>~/.zshrc
-    echo 'plugins=(git z extract web-search zsh-syntax-highlighting zsh-autosuggestions)' >>~/.zshrc
-    echo 'source $ZSH/oh-my-zsh.sh' >>~/.zshrc
+    echo 'ZSH_THEME="bira"' >>$HOME/.zshrc
+    echo 'plugins=(git z extract web-search zsh-syntax-highlighting zsh-autosuggestions)' >>$HOME/.zshrc
+    echo 'source $ZSH/oh-my-zsh.sh' >>$HOME/.zshrc
+    echo 'alias sz="source $HOME/.zshrc' >> $HOME/.zshrc
     echo "zsh 已成功安装。"
   else
     echo "zsh install failed"
