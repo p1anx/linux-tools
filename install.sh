@@ -83,7 +83,7 @@ function handle_selection {
     15)
       frp
       ;;
-    15)
+    16)
       sublime
       ;;
     99)
@@ -102,7 +102,7 @@ function main() {
   DIR="$(pwd)"
   options=("all install" "alacritty" "docker" "lazygit github" "nerd fonts"
     "tmux" "neovim" "vim" "fzf" "zsh" "miniconda"
-    "p10k" "fastfetch" "source_cn" "frp")
+    "p10k" "fastfetch" "source_cn" "frp" "sublime")
   source "$DIR"/alacritty/alacritty.sh
   source "$DIR"/docker/docker.sh
   source "$DIR"/nerd_fonts.sh
