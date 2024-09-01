@@ -14,14 +14,16 @@ function alacritty_install() {
     exit
   fi
 
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain stable -y
-  source "$HOME/.cargo/env"
-
   local tmp_dir="$HOME/alacritty"
-  # mkdir -p $tmp_dir
+  if [ -d "$HOME/alacritty" ]; then
+    rm -rf "$HOME/alacritty"
+  fi
+  mkdir -p $tmp_dir
   git clone https://github.com/alacritty/alacritty.git $tmp_dir
   cd $tmp_dir
 
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  . "$HOME/.cargo/env"
   cargo build --release
 
   #set desktop entry for alacritty
@@ -29,7 +31,6 @@ function alacritty_install() {
   sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
   sudo desktop-file-install extra/linux/Alacritty.desktop
   sudo update-desktop-database
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 }
 
 function alacritty_config() {
@@ -38,10 +39,10 @@ function alacritty_config() {
   sudo cp Alacritty.svg /usr/share/pixmaps/
 
   # set the configuration for alacritty
-  mkdir -p ~/.config/alacritty/themes
-  git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
-  cp alacritty.toml ~/.config/alacritty/
-  rm -rf $HOME/alacritty
+  mkdir -p $HOME/.config/alacritty/themes
+  git clone https://github.com/alacritty/alacritty-theme $HOME/.config/alacritty/themes
+  cp alacritty.toml $HOME/.config/alacritty/
+  # rm -rf $HOME/alacritty
 }
 
 function alacritty() {
