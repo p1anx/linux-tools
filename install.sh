@@ -97,7 +97,7 @@ function handle_selection {
 function main() {
 
   DIR="$(pwd)"
-  options=("all install" "alacritty" "docker" "github_ssh and lazygit" "nerd fonts"
+  options=("all install" "alacritty" "docker" "lazygit and github" "nerd fonts"
     "tmux" "neovim" "vim" "fzf" "zsh" "miniconda"
     "p10k" "fastfetch" "source_cn" "frp")
   source "$DIR"/alacritty/alacritty.sh
