@@ -28,17 +28,17 @@ function handle_selection {
     1)
       zsh
       p10k
+      fzf
       alacritty
-      docker
-      lazygit
-      github_ssh
-      nerd_fonts
       tmux
       nvim
       vim
-      fzf
+      nerd_fonts
       miniconda
+      docker
       fastfetch
+      lazygit
+      github_ssh
       ;;
     2)
       alacritty
