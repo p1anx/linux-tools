@@ -28,14 +28,14 @@ function handle_selection {
     1)
       fzf
       zsh
-      p10k
       alacritty
+      p10k
       tmux
       nvim
       vim
       nerd_fonts
       miniconda
-      docker
+      echo "2" | docker
       fastfetch
       lazygit
       github_ssh
@@ -97,7 +97,7 @@ function handle_selection {
 function main() {
 
   DIR="$(pwd)"
-  options=("all install" "alacritty" "docker" "git and lazygit" "nerd fonts"
+  options=("all install" "alacritty" "docker" "github_ssh and lazygit" "nerd fonts"
     "tmux" "neovim" "vim" "fzf" "zsh" "miniconda"
     "p10k" "fastfetch" "source_cn" "frp")
   source "$DIR"/alacritty/alacritty.sh
