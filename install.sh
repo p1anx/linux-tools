@@ -26,9 +26,9 @@ function handle_selection {
   for choice in "${choices[@]}"; do
     case $choice in
     1)
+      fzf
       zsh
       p10k
-      fzf
       alacritty
       tmux
       nvim
