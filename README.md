@@ -21,7 +21,8 @@
 
 ## v2ray
 
-## frpggg
+## frp
+frp在物理机上可用，在虚拟机中不可用('frpc' is tested)
 
 
 
