@@ -103,6 +103,7 @@ function main() {
   options=("all install" "alacritty" "docker" "lazygit github" "nerd fonts"
     "tmux" "neovim" "vim" "fzf" "zsh" "miniconda"
     "p10k" "fastfetch" "source_cn" "frp" "sublime")
+  source "$DIR"/dependency.sh
   source "$DIR"/alacritty/alacritty.sh
   source "$DIR"/docker/docker.sh
   source "$DIR"/nerd_fonts.sh
@@ -131,6 +132,7 @@ function main() {
   # done
 
   print_menu
+  dependency
   # 处理用户选择的函数
   handle_selection
 }
