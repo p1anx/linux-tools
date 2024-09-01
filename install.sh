@@ -83,6 +83,9 @@ function handle_selection {
     15)
       frp
       ;;
+    15)
+      sublime
+      ;;
     99)
       echo "退出脚本。"
       exit 0
@@ -106,6 +109,7 @@ function main() {
   source "$DIR"/tmux/tmux.sh
   source "$DIR"/editor/nvim.sh
   source "$DIR"/editor/vim.sh
+  source "$DIR"/editor/sublime.sh
   source "$DIR"/terminal/fzf.sh
   source "$DIR"/terminal/zsh.sh
   source "$DIR"/terminal/fastfetch.sh
