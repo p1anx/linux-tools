@@ -203,17 +203,17 @@ bindsym $mod+n         border pixel 3
 bindsym $mod+y         border normal 3
 
 # Configure 5px of space between windows and to the screen edges.
-gaps inner 20px
+# gaps inner 20px
 
 # Configure an additional 5px of extra space to the screen edges,
 # for a total gap of 10px to the screen edges, and 5px between windows.
-gaps outer 20px
+# gaps outer 20px
 
-# gaps top 0
-# gaps bottom 0
-# gaps left 0
-# gaps right 0
-# gaps inner 8px
+gaps top 0
+gaps bottom 0
+gaps left 0
+gaps right 0
+gaps inner 8px
 
 
 # Overwrite gaps to 0, I need all the space I can get on workspace 3.
