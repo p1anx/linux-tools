@@ -190,9 +190,10 @@ bindsym $mod+r mode "resize"
 # bar {
 #         status_command i3status
 # }
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh --forest
 
 exec --no-startup-id "feh --bg-scale ~/Pictures/Neon\ Rain_3840x2160.jpg"
+exec --no-startup-id "picom"
 default_border pixel 0
 default_floating_border pixel 0
 hide_edge_borders smart
