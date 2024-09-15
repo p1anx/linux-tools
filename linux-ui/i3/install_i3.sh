@@ -5,5 +5,8 @@ echo "deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-relea
 sudo apt update
 sudo apt install i3
 
+# install autotiling for auto change the tiling window
+pip3 install autotiling
+
 mkdir -p $HOME/.config/i3
 cp config ~/.config/i3/

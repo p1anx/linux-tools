@@ -191,10 +191,10 @@ bindsym $mod+r mode "resize"
 #         status_command i3status
 # }
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh --forest
+exec_always --no-startup-id $HOME/miniconda3/bin/autotiling
 
 exec --no-startup-id "feh --bg-scale ~/Pictures/Neon\ Rain_3840x2160.jpg"
 exec --no-startup-id "picom"
-exec --no-startup-id xrandr --dpi 120
 default_border pixel 0
 default_floating_border pixel 0
 hide_edge_borders smart
@@ -244,3 +244,7 @@ popup_during_fullscreen smart
 
 # Disable tiling drag altogether
 # tiling_drag off
+
+# 以粗体打印所有窗口标题
+# for_window [class=".*"] title_format "<b>%title</b>"
+
