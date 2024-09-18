@@ -41,7 +41,7 @@ EOF
     echo 'ZSH_THEME="bira"' >>$HOME/.zshrc
     echo 'plugins=(git z extract web-search zsh-syntax-highlighting zsh-autosuggestions)' >>$HOME/.zshrc
     echo 'source $ZSH/oh-my-zsh.sh' >>$HOME/.zshrc
-    echo 'alias sz="source $HOME/.zshrc' >> $HOME/.zshrc
+    echo 'alias sz="source $HOME/.zshrc"' >>$HOME/.zshrc
     echo "zsh 已成功安装。"
   else
     echo "zsh install failed"
