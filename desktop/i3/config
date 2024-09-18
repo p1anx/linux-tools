@@ -190,7 +190,8 @@ bindsym $mod+r mode "resize"
 # bar {
 #         status_command i3status
 # }
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh --forest
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh --forest
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh --material
 exec_always --no-startup-id $HOME/miniconda3/bin/autotiling
 
 exec --no-startup-id "feh --bg-scale ~/Pictures/Neon\ Rain_3840x2160.jpg"
@@ -226,8 +227,9 @@ gaps inner 8px
 smart_gaps inverse_outer
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #fe8019
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.focused          #4c7899 #285577 #ffffff #fe8019   #fe8019
+# client.focused_inactive #333333 #5f676a #ffffff #484e50   #a89984
+client.focused_inactive #333333 #5f676a #ffffff #5f676a   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
