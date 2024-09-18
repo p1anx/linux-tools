@@ -37,8 +37,8 @@ function handle_selection {
       miniconda
       echo "2" | docker
       fastfetch
-      lazygit
-      github_ssh
+      # lazygit
+      # github_ssh
       ;;
     2)
       alacritty
@@ -86,6 +86,9 @@ function handle_selection {
     16)
       sublime
       ;;
+    17)
+      rofi
+      ;;
     99)
       echo "退出脚本。"
       exit 0
@@ -102,7 +105,7 @@ function main() {
   DIR="$(pwd)"
   options=("all install" "alacritty" "docker" "lazygit github" "nerd fonts"
     "tmux" "neovim" "vim" "fzf" "zsh" "miniconda"
-    "p10k" "fastfetch" "source_cn" "frp" "sublime")
+    "p10k" "fastfetch" "source_cn" "frp" "sublime" "rofi")
   source "$DIR"/dependency.sh
   source "$DIR"/alacritty/alacritty.sh
   source "$DIR"/docker/docker.sh
@@ -120,6 +123,7 @@ function main() {
   source "$DIR"/git/github_ssh.sh
   source "$DIR"/network/frp.sh
   source "$DIR"/source.sh
+  source "$DIR"/desktop/rofi/rofi.sh
 
   # 指定包含脚本的目录
   # git_dir="$DIR/git"
