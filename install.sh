@@ -35,8 +35,8 @@ function handle_selection {
       vim
       nerd_fonts
       miniconda
-      echo "2" | docker
-      fastfetch
+      # echo "2" | docker
+      # fastfetch
       # lazygit
       # github_ssh
       ;;
