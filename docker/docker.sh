@@ -98,7 +98,7 @@ function docker() {
     # 检查Docker服务是否正常运行
     if systemctl is-active --quiet docker; then
       echo "Docker 服务正在运行"
-      exit 0
+      return 0
     else
       echo "Docker 服务未运行"
       #judge the system type

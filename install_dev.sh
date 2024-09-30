@@ -60,9 +60,36 @@ function load_all_scripts {
 
 function load_partial_scripts {
   # 定义需要加载的脚本和函数
-  local partial_scripts=("alacritty/alacritty.sh" "docker/docker.sh" "git/lazygit.sh")
-  local partial_functions=("alacritty" "docker" "lazygit")
+  local partial_scripts=()
+  local partial_functions=()
 
+  partial_scripts+=("tmux/tmux.sh")
+  partial_functions+=("tmux")
+
+  partial_scripts+=("editor/nvim.sh")
+  partial_functions+=("nvim")
+
+  partial_scripts+=("editor/vim.sh")
+  partial_functions+=("vim")
+
+  partial_scripts+=("terminal/fzf.sh")
+  partial_functions+=("fzf")
+
+  partial_scripts+=("terminal/zsh.sh")
+  partial_functions+=("zsh")
+
+  partial_scripts+=("alacritty/alacritty.sh")
+  partial_functions+=("alacritty")
+
+  partial_scripts+=("docker/docker.sh")
+  partial_functions+=("docker")
+
+
+  partial_scripts+=("python/miniconda.sh")
+  partial_functions+=("miniconda")
+
+  partial_scripts+=("p10k/p10k.sh")
+  partial_functions+=("p10k")
   for i in "${!partial_scripts[@]}"; do
     script="${partial_scripts[$i]}"
     function_name="${partial_functions[$i]}"
@@ -78,7 +105,7 @@ function load_partial_scripts {
 }
 
 function load_scripts {
-  options=("加载所有脚本") # 新增选项
+  options=("partial scripts") # 新增选项
   scripts=()         # 清空脚本数组
   functions=()       # 清空函数数组
 
