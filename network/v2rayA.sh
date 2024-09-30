@@ -12,7 +12,9 @@
 
 # 下载debian安装包, 针对不同的硬件架构以下下载命令稍做调整即可.
 # 所有安装包可以在这里找到https://github.com/v2rayA/v2rayA/releases/
-wget -O /tmp/installer_debian_x64_2.2.4.6.deb https://ghproxy.net/https://github.com/v2rayA/v2rayA/releases/download/v2.2.4.6/installer_debian_x64_2.2.4.6.deb
+function v2raya(){
+    wget -O /tmp/installer_debian_x64_2.2.4.6.deb https://ghproxy.net/https://github.com/v2rayA/v2rayA/releases/download/v2.2.4.6/installer_debian_x64_2.2.4.6.deb
 
-# 安装v2rayA
-sudo apt install /tmp/installer_debian_x64_2.2.4.6.deb
+    # 安装v2rayA
+    sudo apt install /tmp/installer_debian_x64_2.2.4.6.deb
+}

@@ -2,11 +2,11 @@
 
 function github_ssh() {
   # 1. 设置 GitHub 用户名和邮箱
-  GITHUB_USER="p1anx"
-  GITHUB_EMAIL="2514034568@qq.com"
+  local GITHUB_USER="p1anx"
+  local GITHUB_EMAIL="2514034568@qq.com"
 
   # 2. 检查是否已存在 SSH 密钥
-  SSH_KEY="$HOME/.ssh/id_rsa"
+  local SSH_KEY="$HOME/.ssh/id_rsa"
   if [ -f "$SSH_KEY" ]; then
     echo "SSH 密钥已存在：$SSH_KEY"
   else
@@ -20,7 +20,7 @@ function github_ssh() {
   ssh-add "$SSH_KEY"
 
   # 5. 提取公钥
-  PUB_KEY=$(cat "$SSH_KEY.pub")
+  local PUB_KEY=$(cat "$SSH_KEY.pub")
 
   # 6. 上传公钥到 GitHub
   echo "正在上传公钥到 GitHub..."

@@ -1,5 +1,8 @@
 #!/bin/bash
 function frp_client() {
+  local FRP_SERVER_IP
+  local FRP_NAME
+  local REMOTE_PORT
   read -p "input the frp server's IP: " FRP_SERVER_IP
   read -p "input the frp proxy name(ssh-...): " FRP_NAME
   read -p "input the frp's remotePort(6000-6100): " REMOTE_PORT
@@ -21,7 +24,7 @@ remotePort = $REMOTE_PORT
 
 EOF
 
-  FRP_SERVICE_DIR="/etc/systemd/system"
+  local FRP_SERVICE_DIR="/etc/systemd/system"
   sudo touch "$FRP_SERVICE_DIR"/frpc.service
   sudo tee "$FRP_SERVICE_DIR"/frpc.service <<EOF
 [Unit]
@@ -49,7 +52,7 @@ function frp_server() {
   tar -zxvf frp.tar.gz
   sudo mv frp_0.60.0_linux_amd64 /usr/local/frps
 
-  FRP_SERVICE_DIR="/etc/systemd/system"
+  local FRP_SERVICE_DIR="/etc/systemd/system"
   sudo touch "$FRP_SERVICE_DIR"/frps.service
   sudo tee "$FRP_SERVICE_DIR"/frps.service <<EOF
 [Unit]
@@ -76,6 +79,7 @@ function frp() {
   echo "Which is you want to install and config ?"
   echo "(1) frp client"
   echo "(2) frp server"
+  local FRP
   read -p "To choose the option, enter 1 or 2 : " FRP
   if [ $FRP -eq 1 ]; then
     frp_client
