@@ -89,6 +89,7 @@ function docker() {
   echo "Do you want to set the proxy or mirror for docker?"
   echo "(1) proxy"
   echo "(2) mirror"
+  local PROXY
   read -p "Enter the number 1 or 2: " PROXY
   # 检查docker命令是否存在
   if command -v docker &>/dev/null; then
