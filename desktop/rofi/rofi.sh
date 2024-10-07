@@ -4,6 +4,8 @@ function rofi() {
         if grep -q "ubuntu" /etc/os-release; then
           sudo apt update
           sudo apt install -y rofi
+      elif grep -q "arch" /etc/os-release; then
+          sudo pacman -S rofi --noconfirm
       else
             echo -e "\e[31m[error]\e[0mrofi is not suitable for this system"
         fi
