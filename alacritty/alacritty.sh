@@ -47,7 +47,11 @@ function alacritty_config() {
 
 function alacritty() {
 
-  alacritty_install
+  if grep -q "arch" /etc/os-release; then
+    sudo pacman -S alacritty --noconfirm
+  else
+    alacritty_install
+  fi
   alacritty_config
   echo "=========================="
   echo "  alacritty is installed"
