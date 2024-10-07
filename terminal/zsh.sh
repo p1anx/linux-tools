@@ -58,9 +58,11 @@ function zsh() {
   elif grep -q "rocky" /etc/os-release; then
     sudo yum install -y util-linux-user # it's useful for "chsh" command in oh my zsh
     sudo yum install -y zsh
+  elif grep -q "arch" /etc/os-release; then
+    sudo pacman -S zsh curl --noconfirm
   else
-    echo "The system is not supported"
-    exit
+    echo "[error]The system is not supported"
+    exit 1
   fi
   oh_my_zsh
 }
