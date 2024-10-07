@@ -169,9 +169,13 @@ function load_scripts {
   scripts+=("desktop/rofi/rofi.sh")
   functions+=("rofi")
 
+  options+=("ssh")
+  scripts+=("ssh_install.sh")
+  functions+=("ssh_install")
+
   # 加载所有脚本并定义函数
   for script in "${scripts[@]}"; do
-    echo "$DIR/$script"
+#    echo "$DIR/$script"
     source "$DIR/$script"
   done
 }
