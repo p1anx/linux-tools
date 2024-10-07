@@ -41,8 +41,10 @@ function tmux() {
     sudo yum update
     sudo yum install tmux -y
     sudo yum install perl -y
+  elif grep -q "arch" /etc/os-release; then
+      sudo pacman -S tmux --noconfirm
   else
-    echo "The system is not supported"
+    echo -e "\e[32m[error]\e[0mThe system is not supported"
     exit
   fi
 
