@@ -9,22 +9,29 @@ function nvim_install() {
 
         echo "export PATH=$PATH:/opt/nvim-linux64/bin" >>~/.zshrc
 
-  # git clone https://github.com/LazyVim/starter ~/.config/nvim
-  git clone https://github.com/p1anx/nvim-xwj.git ~/.config/nvim
 }
 
 function nvim() {
-    if [ ! -e "/opt/nvim-linux64/bin/nvim" ]; then
-    nvim_install
+  if ! command -v nvim > /dev/null 2>&1; then
+    echo "nvim isnot installing"
+    if grep -q "arch" /etc/os-release; then
+      sudo pacman -S neovim --noconfirm
     else
-    echo "[ok]nvim is install"
+      if [ ! -e "/opt/nvim-linux64/bin/nvim" ]; then
+        nvim_install
+      else
+        echo -e "\e[32m[ok]nvim is installed\e[0m"
+      fi
     fi
+  else
+        echo -e "\e[32m[ok] nvim is installed\e[0m"
+  fi
+  # git clone https://github.com/LazyVim/starter ~/.config/nvim
+  rm -rf ~/.config/nvim
+  git clone https://github.com/p1anx/nvim-xwj.git ~/.config/nvim
 
   if [ -e "nvim-linux64.tar.gz" ]; then
     sudo rm -rf nvim-linux64.tar.gz
-    # echo "nvim-linux64.tar.gz is deleted"
-  else
-    echo "nvim-linux64 download is deleted"
   fi
 
   echo "=================================="
