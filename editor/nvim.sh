@@ -9,7 +9,8 @@ function nvim_install() {
 
         echo "export PATH=$PATH:/opt/nvim-linux64/bin" >>~/.zshrc
 
-  git clone https://github.com/LazyVim/starter ~/.config/nvim
+  # git clone https://github.com/LazyVim/starter ~/.config/nvim
+  git clone https://github.com/p1anx/nvim-xwj.git ~/.config/nvim
 }
 
 function nvim() {
