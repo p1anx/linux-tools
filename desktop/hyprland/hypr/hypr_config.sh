@@ -6,6 +6,7 @@ function hypr_config() {
   else
     mkdir -p ~/.config/hypr
   fi
-  cp -r $CWD/desktop/hyprland/hypr/configs hyprland.conf ~/.config/hypr/
+  local HYPR=$CWD/desktop/hyprland/hypr
+  cp -r $HYPR/configs $HYPR/hyprland.conf ~/.config/hypr/
 
 }
