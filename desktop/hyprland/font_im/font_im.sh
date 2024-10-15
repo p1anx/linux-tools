@@ -47,7 +47,7 @@ __include: rime_ice_suggestion:/
 EOF
   #set themes
   git clone https://github.com/thep0y/fcitx5-themes.git ~/fcitx5-themes
-  cp -r ~/fcitx5-themes/macOS-dark ~/.local/share/fcitx5/themes
+  cp -r ~/fcitx5-themes/macOS-dark ~/.local/share/fcitx5/themes/
   if [ ! -f ~/.config/fcitx5/conf/classicui.conf ]; then
     touch ~/.config/fcitx5/conf/classicui.conf
   fi
