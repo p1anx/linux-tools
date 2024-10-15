@@ -40,10 +40,10 @@ EOF
     touch ~/.local/share/fcitx5/rime/default.custom.yaml
   fi
   tee -a ~/.local/share/fcitx5/rime/default.custom.yaml <<EOF
-  patch:
-  # 仅使用「雾凇拼音」的默认配置，配置此行即可
-  __include: rime_ice_suggestion:/
-  # 以下可根据自己所需进行自定义，仅做参考。
+patch:
+# 仅使用「雾凇拼音」的默认配置，配置此行即可
+__include: rime_ice_suggestion:/
+# 以下可根据自己所需进行自定义，仅做参考。
 EOF
   #set themes
   git clone https://github.com/thep0y/fcitx5-themes.git ~/fcitx5-themes
