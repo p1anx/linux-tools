@@ -13,7 +13,6 @@ function waybar_config() {
     mkdir -p ~/.config/waybar
   fi
 
-  CWD="$(dirname "$(realpath "\$0")")"
-  cd "$CWD"
-  cp theme0/* ~/.config/waybar/
+  local CWD="$(dirname "$(realpath "\$0")")"
+  cp $CWD/desktop/hyprland/waybar/theme0/* ~/.config/waybar/
 }

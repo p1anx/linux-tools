@@ -1,6 +1,6 @@
 #!/bin/bash
 function aur() {
-  sudo tee -a /etc/pam.conf <<EOF
+  sudo tee -a /etc/pacman.conf <<EOF
 [archlinuxcn]
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/\$arch
 EOF

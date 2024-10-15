@@ -1,11 +1,11 @@
 #!/bin/bash
 function hypr_config() {
-  CWD="$(dirname "$(realpath "\$0")")"
+  local CWD="$(dirname "$(realpath "\$0")")"
   if [ -d ~/.config/hypr ]; then
     rm -rf ~/.config/hypr/*
   else
     mkdir -p ~/.config/hypr
   fi
-  cp -r $CWD/configs hyprland.conf ~/.config/hypr/
+  cp -r $CWD/desktop/hyprland/hypr/configs hyprland.conf ~/.config/hypr/
 
 }
