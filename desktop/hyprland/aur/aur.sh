@@ -5,7 +5,7 @@ function aur() {
 [archlinuxcn]
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/\$arch
 EOF
-  sudo pacman -Sy archlinuxcn-keyring
+  sudo pacman -Sy archlinuxcn-keyring --noconfirm
   sudo pacman -S yay --noconfirm
 
 }
