@@ -47,8 +47,46 @@ __include: rime_ice_suggestion:/
 EOF
   #set themes
   git clone https://github.com/thep0y/fcitx5-themes.git ~/fcitx5-themes
-  cp ~/fcitx5-themes/macOS-dark ~/.local/share/fcitx5/themes -r
-
+  cp -r ~/fcitx5-themes/macOS-dark ~/.local/share/fcitx5/themes
+  if [ ! -f ~/.config/fcitx5/conf/classicui.conf ]; then
+    touch ~/.config/fcitx5/conf/classicui.conf
+  fi
+  tee -a ~/.config/fcitx5/conf/classicui.conf <<EOF
+# Vertical Candidate List
+Vertical Candidate List=False
+# Use mouse wheel to go to prev or next page
+WheelForPaging=True
+# Font
+Font="Smartisan Compact CNS 13"
+# Menu Font
+MenuFont="Sans 10"
+# Tray Font
+TrayFont="Sans Bold 10"
+# Tray Label Outline Color
+TrayOutlineColor=#000000
+# Tray Label Text Color
+TrayTextColor=#ffffff
+# Prefer Text Icon
+PreferTextIcon=False
+# Show Layout Name In Icon
+ShowLayoutNameInIcon=True
+# Use input method language to display text
+UseInputMethodLanguageToDisplayText=True
+# Theme
+Theme=macOS-dark
+# Dark Theme
+DarkTheme=default-dark
+# Follow system light/dark color scheme
+UseDarkTheme=False
+# Follow system accent color if it is supported by theme and desktop
+UseAccentColor=True
+# Use Per Screen DPI on X11
+PerScreenDPI=True
+# Force font DPI on Wayland
+ForceWaylandDPI=0
+# Enable fractional scale under Wayland
+EnableFractionalScale=True
+EOF
 }
 function font_im() {
   font
