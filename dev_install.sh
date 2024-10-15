@@ -109,8 +109,8 @@ function load_partial_scripts {
 
 function load_scripts {
   options=("default install") # 新增选项
-  scripts=()         # 清空脚本数组
-  functions=()       # 清空函数数组
+  scripts=()                  # 清空脚本数组
+  functions=()                # 清空函数数组
 
   # 其他选项、脚本和函数的定义保持不变
   options+=("alacritty")
@@ -173,9 +173,12 @@ function load_scripts {
   scripts+=("ssh_install.sh")
   functions+=("ssh_install")
 
+  options+=("hyprland")
+  scripts+=("desktop/hyprland/hyprland_config.sh")
+  functions+=("hyprland_config")
   # 加载所有脚本并定义函数
   for script in "${scripts[@]}"; do
-#    echo "$DIR/$script"
+    #    echo "$DIR/$script"
     source "$DIR/$script"
   done
 }
