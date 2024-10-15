@@ -46,9 +46,8 @@ EOF
   # 以下可根据自己所需进行自定义，仅做参考。
 EOF
   #set themes
-  git clone https://github.com/thep0y/fcitx5-themes.git
-  cd fcitx5-themes
-  cp macOS-dark ~/.local/share/fcitx5/themes -r
+  git clone https://github.com/thep0y/fcitx5-themes.git ~/fcitx5-themes
+  cp ~/fcitx5-themes/macOS-dark ~/.local/share/fcitx5/themes -r
 
 }
 function font_im() {
