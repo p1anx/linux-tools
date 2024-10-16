@@ -12,8 +12,8 @@ function rofi_config() {
     mv ~/.config/rofi ~/.config/rofi.bak
     mkdir ~/.config/rofi
   fi
-  local rofi_dir=$(pwd)
-  echo "rofi dir is $rofi_dir"
-  cp $rofi_dir/config.rasi ~/.config/rofi/
+  # 获取脚本文件所在的目录
+  local script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+  echo "脚本所在的目录是: $script_dir"
+  cp $script_dir/config.rasi ~/.config/rofi/
 }
-rofi_config
