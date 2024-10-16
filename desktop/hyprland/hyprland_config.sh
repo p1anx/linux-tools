@@ -1,13 +1,16 @@
 #!/bin/bash
 
 function hyprland_config() {
-  local HYPRLAND="$(dirname "$(realpath "\$0")")"
-  source $HYPRLAND/desktop/hyprland/aur/aur.sh
-  source $HYPRLAND/desktop/hyprland/font_im/font_im.sh
-  source $HYPRLAND/desktop/hyprland/waybar/waybar_config.sh
-  source $HYPRLAND/desktop/hyprland/hypr/hypr_config.sh
-  source $HYPRLAND/nerd_fonts.sh
-  source $HYPRLAND/desktop/hyprland/rofi/rofi_config.sh
+  # 获取脚本文件所在的目录
+  local script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+  echo "脚本所在的目录是: $script_dir"
+  exit 1
+  source $script_dir/aur/aur.sh
+  source $script_dir/font_im/font_im.sh
+  source $script_dir/waybar/waybar_config.sh
+  source $script_dir/hypr/hypr_config.sh
+  source $script_dir/nerd_fonts.sh
+  source $script_dir/rofi/rofi_config.sh
 
   aur
   font_im
