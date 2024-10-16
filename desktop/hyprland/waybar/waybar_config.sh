@@ -15,5 +15,5 @@ function waybar_config() {
 
   local CWD="$(dirname "$(realpath "\$0")")"
   cd $CWD
-  cp $CWD/desktop/hyprland/waybar/theme0/* ~/.config/waybar/
+  cp $CWD/desktop/hyprland/waybar/theme1/* ~/.config/waybar/
 }
