@@ -1,12 +1,12 @@
 #!/bin/bash
 function hypr_config() {
-  local CWD="$(dirname "$(realpath "\$0")")"
+  local HYPR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+  echo "hypr脚本所在的目录是: $HYPR"
   if [ -d ~/.config/hypr ]; then
     rm -rf ~/.config/hypr/*
   else
     mkdir -p ~/.config/hypr
   fi
-  local HYPR=$CWD/desktop/hyprland/hypr
   cp -r $HYPR/configs $HYPR/hyprland.conf ~/.config/hypr/
 
 }
