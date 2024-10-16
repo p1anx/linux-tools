@@ -10,6 +10,7 @@ function hyprland_config() {
   source $script_dir/hypr/hypr_config.sh
   source $script_dir/../../nerd_fonts.sh
   source $script_dir/rofi/rofi_config.sh
+  source $script_dir/sddm/sddm_config.sh
 
   aur
   font_im
@@ -17,5 +18,6 @@ function hyprland_config() {
   hypr_config
   nerd_fonts
   rofi_config
+  sddm_config
 
 }
