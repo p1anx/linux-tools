@@ -174,7 +174,7 @@ function load_scripts {
   functions+=("ssh_install")
 
   options+=("hyprland")
-  scripts+=("desktop/hyprland/hyprland_config.sh")
+  scripts+=("hyprland/hyprland_config.sh")
   functions+=("hyprland_config")
   # 加载所有脚本并定义函数
   for script in "${scripts[@]}"; do
