@@ -1,7 +1,7 @@
 #!/bin/bash
 function waybar_config() {
   local script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-  echo "waybar_config.sh脚本所在的目录是: $script_dir"
+  #echo "waybar_config.sh脚本所在的目录是: $script_dir"
 
   if ! command -v waybar >/dev/null 2>&1; then
     if grep -q "arch" /etc/os-release; then
@@ -18,5 +18,5 @@ function waybar_config() {
     mv ~/.config/waybar ~/.config/waybar.bak 
   fi
 
-  cp -r $script_dir/theme1 ~/.config/waybar
+  cp -r $script_dir/theme4 ~/.config/waybar
 }
