@@ -4,10 +4,12 @@ function oh_my_zsh() {
   if ! echo "$proxy_check" | grep -q "proxy"; then
     echo "=======please open proxy========"
   fi
-  sh -c "$(curl -fsSL https://gitee.com/shmhlsy/oh-my-zsh-install.sh/raw/master/install.sh)" --unattended
+ # sh -c "$(curl -fsSL https://gitee.com/shmhlsy/oh-my-zsh-install.sh/raw/master/install.sh)" --unattended
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
   sudo tee -a $HOME/.zshrc <<EOF
+source /etc/profile
 function von(){
   export http_proxy="http://127.0.0.1:10809"
   export https_proxy="http://127.0.0.1:10809"
