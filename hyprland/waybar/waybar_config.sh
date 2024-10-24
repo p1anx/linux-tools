@@ -18,5 +18,5 @@ function waybar_config() {
     mv ~/.config/waybar ~/.config/waybar.bak 
   fi
 
-  cp -r $script_dir/theme4 ~/.config/waybar
+  cp -r $script_dir/theme4/* ~/.config/waybar
 }
