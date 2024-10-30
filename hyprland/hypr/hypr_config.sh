@@ -7,6 +7,7 @@ function hypr_config() {
   else
     mkdir -p ~/.config/hypr
   fi
-  cp -r $HYPR/configs $HYPR/hyprland.conf ~/.config/hypr/
+  cp -r $HYPR/configs $HYPR/hyprland.conf $HYPR/wallpaper ~/.config/hypr/
+  sudo pacman -S swww waybar --noconfirm
 
 }
