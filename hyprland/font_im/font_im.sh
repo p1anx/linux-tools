@@ -27,7 +27,7 @@ EOF
 }
 function im() {
   #sudo pacman -S --noconfirm fcitx5-rime fcitx5-im fcitx5-chinese-addons fcitx5-material-color fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki
-  sudo pacman -S --noconfirm fcitx5-rime fcitx5-im fcitx5-material-color
+  sudo pacman -S --noconfirm fcitx5-rime fcitx5-im fcitx5-material-color fcitx5-chinese-addons
   yay -S --noconfirm rime-ice-git
   tee -a ~/.bashrc <<EOF
 export QT_IM_MODULE=fcitx
@@ -47,7 +47,9 @@ __include: rime_ice_suggestion:/
 EOF
   #set themes
   git clone https://github.com/thep0y/fcitx5-themes.git ~/fcitx5-themes
+  git clone https://github.com/sxqsfun/fcitx5-sogou-themes.git ~/fcitx5-sougou-themes
   cp -r ~/fcitx5-themes/macOS-dark ~/.local/share/fcitx5/themes/
+  cp -r ~/fcitx5-sougou-themes/* ~/.local/share/fictx5/themes/
   if [ ! -f ~/.config/fcitx5/conf/classicui.conf ]; then
     touch ~/.config/fcitx5/conf/classicui.conf
   fi
