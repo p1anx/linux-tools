@@ -25,7 +25,7 @@ EOF
   fi
 
 }
-function im() {
+function im0() {
   #sudo pacman -S --noconfirm fcitx5-rime fcitx5-im fcitx5-chinese-addons fcitx5-material-color fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki
   sudo pacman -S --noconfirm fcitx5-rime fcitx5-im fcitx5-material-color fcitx5-chinese-addons
   yay -S --noconfirm rime-ice-git
@@ -90,6 +90,19 @@ ForceWaylandDPI=0
 EnableFractionalScale=True
 EOF
 }
+function im() {
+  local script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+  #sudo pacman -S --noconfirm fcitx5-rime fcitx5-im fcitx5-chinese-addons fcitx5-material-color fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki
+  sudo pacman -S --noconfirm fcitx5-rime fcitx5-im fcitx5-material-color fcitx5-chinese-addons
+  tee -a ~/.bashrc <<EOF
+export QT_IM_MODULE=fcitx
+export GTK_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+EOF
+  cp -r $script_dir/im_themes/* ~/.local/share/fcitx5/themes/
+}
+
+
 function font_im() {
   font
   im
