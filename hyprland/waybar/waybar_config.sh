@@ -15,8 +15,8 @@ function waybar_config() {
   if [ ! -d ~/.config/waybar ]; then
     mkdir -p ~/.config/waybar
   else
-    mv ~/.config/waybar ~/.config/waybar.bak 
+    mv ~/.config/waybar ~/.config/waybar.bak
   fi
 
-  cp -r $script_dir/theme4/* ~/.config/waybar
+  cp -r $script_dir/theme5/* ~/.config/waybar
 }
