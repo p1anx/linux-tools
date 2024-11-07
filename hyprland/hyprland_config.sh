@@ -12,6 +12,7 @@ function hyprland_config() {
   source $script_dir/rofi/rofi_config.sh
   source $script_dir/sddm/sddm_config.sh
   source $script_dir/dunst/dunst_config.sh
+  source $script_dir/foot/foot_config.sh
 
   aur
   font_im
@@ -21,5 +22,6 @@ function hyprland_config() {
   rofi_config
   sddm_config
   dunst_config
+  foot_config
 
 }
