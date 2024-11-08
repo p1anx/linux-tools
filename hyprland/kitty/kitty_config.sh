@@ -4,6 +4,7 @@ function kitty_config() {
   if [ -d ~/.config/kitty ]; then
     rm -rf ~/.config/kitty
   else
+    # mkdir ~/.config/kitty
     cp -r $script_dir/../kitty ~/.config
   fi
 
