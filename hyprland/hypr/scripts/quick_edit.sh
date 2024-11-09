@@ -3,19 +3,19 @@ edit=${EDITOR:-vim}
 tty=foot
 
 # Paths to configuration directories
-configs="$HOME/.config/hypr/configs"
-UserConfigs="$HOME/.config/hypr"
+configs="$HOME/.config"
+UserConfigs="$HOME/.config"
 
 # Function to display the menu options
 menu() {
   cat <<EOF
-1. Edit Env-variables
-2. Edit Window-Rules
-3. Edit Startup_Apps
-4. Edit User-Keybinds
-5. Edit Monitors
-6. Edit Laptop-Keybinds
-7. Edit User-Settings
+1. Edit vim
+2. Edit nvim
+3. Edit tmux
+4. Edit hypr
+5. Edit kitty
+6. Edit waybar
+7. Edit rofi
 8. Edit Decorations & Animations
 9. Edit Workspace-Rules
 10. Edit Default-Settings
@@ -29,13 +29,13 @@ main() {
 
   # Map choices to corresponding files
   case $choice in
-  1) file="$UserConfigs/ENVariables.conf" ;;
-  2) file="$UserConfigs/WindowRules.conf" ;;
+  1) file="$UserConfigs/vim/vimrc" ;;
+  2) file="$UserConfigs/nvim/init.lua" ;;
   3) file="$UserConfigs/Startup_Apps.conf" ;;
-  4) file="$UserConfigs/UserKeybinds.conf" ;;
-  5) file="$UserConfigs/Monitors.conf" ;;
-  6) file="$UserConfigs/Laptops.conf" ;;
-  7) file="$UserConfigs/UserSettings.conf" ;;
+  4) file="$UserConfigs/hypr/hyprland.conf" ;;
+  5) file="$UserConfigs/kitty/kitty.conf" ;;
+  6) file="$UserConfigs/waybar/config" ;;
+  7) file="$UserConfigs/rofi/config.rasi" ;;
   8) file="$UserConfigs/UserDecorAnimations.conf" ;;
   9) file="$UserConfigs/WorkspaceRules.conf" ;;
   10) file="$configs/setting.conf" ;;

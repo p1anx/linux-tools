@@ -3,28 +3,23 @@ function nvim_install() {
   #================================================
   # nvim and lazyvim
   #================================================
-        curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-        sudo rm -rf /opt/nvim
-        sudo tar -C /opt -xzf nvim-linux64.tar.gz
+  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+  sudo rm -rf /opt/nvim
+  sudo tar -C /opt -xzf nvim-linux64.tar.gz
 
-        echo "export PATH=$PATH:/opt/nvim-linux64/bin" >>~/.zshrc
+  echo "export PATH=$PATH:/opt/nvim-linux64/bin" >>~/.zshrc
 
 }
 
 function nvim() {
-  if ! command -v nvim > /dev/null 2>&1; then
-    echo "nvim isnot installing"
-    if grep -q "arch" /etc/os-release; then
-      sudo pacman -S neovim --noconfirm
-    else
-      if [ ! -e "/opt/nvim-linux64/bin/nvim" ]; then
-        nvim_install
-      else
-        echo -e "\e[32m[ok]nvim is installed\e[0m"
-      fi
-    fi
+  if grep -q "arch" /etc/os-release; then
+    sudo pacman -S neovim --noconfirm
   else
-        echo -e "\e[32m[ok] nvim is installed\e[0m"
+    if [ ! -e "/opt/nvim-linux64/bin/nvim" ]; then
+      nvim_install
+    else
+      echo -e "\e[32m[ok]nvim is installed\e[0m"
+    fi
   fi
   # git clone https://github.com/LazyVim/starter ~/.config/nvim
   rm -rf ~/.config/nvim
