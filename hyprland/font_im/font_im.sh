@@ -103,6 +103,10 @@ EOF
     mkdir -p ~/.local/share/fcitx5/themes
   fi
   cp -r $script_dir/im_themes/* ~/.local/share/fcitx5/themes/
+  if [ -d ~/.config/fcitx5 ]; then
+    rm -rf ~/.config/fcitx5
+  fi
+  cp -r $script_dir/fcitx5 ~/.config
 }
 
 function font_im() {
