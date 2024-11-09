@@ -99,10 +99,12 @@ export QT_IM_MODULE=fcitx
 export GTK_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 EOF
+  #set the themes for im
   if [ ! -d ~/.local/share/fcitx5/themes ]; then
     mkdir -p ~/.local/share/fcitx5/themes
   fi
   cp -r $script_dir/im_themes/* ~/.local/share/fcitx5/themes/
+  #set the config for input method
   if [ -d ~/.config/fcitx5 ]; then
     rm -rf ~/.config/fcitx5
   fi

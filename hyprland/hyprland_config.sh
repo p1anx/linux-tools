@@ -15,9 +15,12 @@ function hyprland_config() {
   source $script_dir/dunst/dunst_config.sh
   source $script_dir/foot/foot_config.sh
   source $script_dir/../terminal/zsh.sh
-  source $script_dir/../tmux/tmux.sh
-  source $script_dir/../editor/vim.sh
+  source $script_dir/../terminal/fzf.sh
+  source $script_dir/tmux/tmux.sh
+  # source $script_dir/../editor/vim.sh
   source $script_dir/kitty/kitty_config.sh
+  source $script_dir/vim_nvim/vim.sh
+  source $script_dir/vim_nvim/nvim.sh
 
   aur
   hyprland_install
@@ -34,4 +37,5 @@ function hyprland_config() {
   fzf
   tmux
   vim
+  nvim
 }
