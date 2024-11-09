@@ -5,7 +5,7 @@ function kitty_config() {
     rm -rf ~/.config/kitty
   else
     # mkdir ~/.config/kitty
-    cp -r $script_dir/../kitty ~/.config
+    cp -r $script_dir/* ~/.config
   fi
 
 }
