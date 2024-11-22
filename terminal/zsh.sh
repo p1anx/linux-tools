@@ -25,6 +25,7 @@ function voff(){
 export http_proxy="http://127.0.0.1:7890"
 export https_proxy="http://127.0.0.1:7890"
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --margin=1 --padding=1"
+alias timeshift="sudo WAYLAND_DISPLAY=$WAYLAND_DISPLAY XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR timeshift-gtk"
 
 EOF
   if [ -f "$HOME/.zshrc" ]; then
