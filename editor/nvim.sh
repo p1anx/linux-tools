@@ -12,8 +12,7 @@ function nvim_install() {
 }
 
 function nvim() {
-  if ! command -v nvim > /dev/null 2>&1; then
-    echo "nvim isnot installing"
+
     if grep -q "arch" /etc/os-release; then
       sudo pacman -S neovim --noconfirm
     else
@@ -23,9 +22,7 @@ function nvim() {
         echo -e "\e[32m[ok]nvim is installed\e[0m"
       fi
     fi
-  else
-        echo -e "\e[32m[ok] nvim is installed\e[0m"
-  fi
+
   # git clone https://github.com/LazyVim/starter ~/.config/nvim
   rm -rf ~/.config/nvim
   git clone https://github.com/p1anx/nvim-xwj.git ~/.config/nvim
