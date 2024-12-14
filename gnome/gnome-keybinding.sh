@@ -6,18 +6,22 @@ function custom_keybindings(){
   # 创建配置文件内容
   cat <<EOL > $CONFIG_FILE
 [org/gnome/settings-daemon/plugins/media-keys]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
-
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
-binding='<Alt>t'
-command='rofi -show window'
-name='rofi'
-
-[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
 binding='<Alt>d'
 command='/home/$USER/.config/rofi/scripts/launcher_t6'
 name='rofi launcher'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Alt>w'
+command='/home/$USER/.config/rofi/scripts/window_t1.sh'
+name='rofi window'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2]
+binding='<Alt>e'
+command='/home/$USER/.config/rofi/scripts/quickedit.sh'
+name='quick edit'
 EOL
 
   # 使用 dconf 加载配置
