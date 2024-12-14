@@ -45,4 +45,4 @@ function normal_keybindings(){
   gsettings set org.gnome.desktop.wm.keybindings show-desktop "['<Super>d']"
 }
 normal_keybindings
-custom-keybindings
+custom_keybindings
