@@ -5,20 +5,20 @@ function custom_keybindings(){
 
   # 创建配置文件内容
   cat <<EOL > $CONFIG_FILE
-  [org/gnome/settings-daemon/plugins/media-keys]
-  custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
 
 
-  [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
-  binding='<Alt>t'
-  command='rofi -show window'
-  name='rofi'
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Alt>t'
+command='rofi -show window'
+name='rofi'
 
-  [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
-  binding='<Alt>d'
-  command='/home/xwj/.config/rofi/scripts/launcher_t6'
-  name='rofi launcher'
-  EOL
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Alt>d'
+command='/home/$USER/.config/rofi/scripts/launcher_t6'
+name='rofi launcher'
+EOL
 
   # 使用 dconf 加载配置
   cat $CONFIG_FILE | dconf load '/'
@@ -29,7 +29,7 @@ function custom_keybindings(){
 }
 
 function normal_keybindings(){
-    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Alt>1']"
+  gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Alt>1']"
   gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Alt>2']"
   gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Alt>3']"
   gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-4 "['<Alt>4']"
