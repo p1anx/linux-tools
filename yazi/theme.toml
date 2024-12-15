@@ -2,5 +2,52 @@
 # use = "catppuccin-mocha"
 # # For upcoming Yazi 0.4 (nightly version):
 # dark = "catppuccin-mocha"
+
 [flavor]
 use = "monokai-vibrant"
+
+
+[flavor]
+use = "catppuccin-latte"
+# For upcoming Yazi 0.4 (nightly version):
+light = "catppuccin-latte"
+
+[flavor]
+use = "catppuccin-frappe"
+# For upcoming Yazi 0.4 (nightly version):
+dark = "catppuccin-frappe"
+
+[flavor]
+use = "catppuccin-macchiato"
+# For upcoming Yazi 0.4 (nightly version):
+dark = "catppuccin-macchiato"
+
+[flavor]
+use = "moonfly"
+
+[flavor]
+use = "nightfly"
+
+[flavor]
+use = "onedark"
+
+[flavor]
+use = "tokyo-night"
+
+[flavor]
+use = "kanagawa"
+
+[flavor]
+use = "kanagawa-dragon"
+
+[flavor]
+use = "gruvbox-dark"
+
+[flavor]
+use = "sunset"
+
+[flavor]
+use = "ayu-dark"
+
+[flavor]
+use = "everforest-medium"
