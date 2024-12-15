@@ -10,7 +10,7 @@ function oh_my_zsh() {
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
   sudo tee -a $HOME/.zshrc <<EOF
 # source /etc/profile
-source ~/.bashrc
+#source ~/.bashrc
 function von(){
   export http_proxy="http://127.0.0.1:10809"
   export https_proxy="http://127.0.0.1:10809"
@@ -25,6 +25,22 @@ function voff(){
 export http_proxy="http://127.0.0.1:7890"
 export https_proxy="http://127.0.0.1:7890"
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --margin=1 --padding=1"
+# Preview file content using bat (https://github.com/sharkdp/bat)
+export FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+# CTRL-Y to copy the command into clipboard using pbcopy
+export FZF_CTRL_R_OPTS="
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+# Print tree structure in the preview window
+export FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'tree -C {}'"
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 alias timeshift="sudo WAYLAND_DISPLAY=$WAYLAND_DISPLAY XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR timeshift-gtk"
 
 EOF
