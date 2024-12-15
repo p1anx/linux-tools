@@ -1,9 +1,10 @@
 #!/bin/bash
-yazi_install(){
-  
+# yazi_install(){
+#
+#
+# }
 
-}
-yazi_plugin(){
+yazi_plugins(){
   ya pack -a yazi-rs/plugins:full-border
   ya pack -a yazi-rs/plugins:max-preview
   ya pack -a yazi-rs/plugins:git
@@ -44,3 +45,4 @@ function y() {
 EOF
 
 }
+yazi_flavors
