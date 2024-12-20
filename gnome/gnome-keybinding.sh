@@ -22,6 +22,10 @@ name='rofi window'
 binding='<Alt>e'
 command='/home/$USER/.config/rofi/scripts/quickedit.sh'
 name='quick edit'
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3]
+binding='<Alt>Return'
+command='alacritty'
+name='open terminal'
 EOL
 
   # 使用 dconf 加载配置
