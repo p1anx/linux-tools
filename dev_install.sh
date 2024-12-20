@@ -176,6 +176,10 @@ function load_scripts {
   options+=("hyprland")
   scripts+=("hyprland/hyprland_config.sh")
   functions+=("hyprland_config")
+
+  options+=("eza")
+  scripts+=("eza/eza.sh")
+  functions+=("eza_install")
   # 加载所有脚本并定义函数
   for script in "${scripts[@]}"; do
     #    echo "$DIR/$script"
