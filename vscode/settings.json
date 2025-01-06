@@ -1,0 +1,26 @@
+{
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "vscode-neovim.afterInitConfig": [
+        ""
+    ],
+    "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.lua",
+    "vscode-neovim.compositeKeys": {
+        "jj": {
+            "command": "vscode-neovim.escape",
+            "args": []
+        },
+    },
+    "editor.fontFamily": "Mononoki Nerd Font,'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontSize": 16,
+    "diffEditor.ignoreTrimWhitespace": true,
+    "workbench.settings.applyToAllProfiles": [
+
+
+    ],
+    "terminal.integrated.inheritEnv": false,
+    "editor.minimap.enabled":false,
+    "workbench.startupEditor" : "none",
+    "security.workspace.trust.untrustedFiles":"open",
+}
