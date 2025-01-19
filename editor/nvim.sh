@@ -6,8 +6,16 @@ function nvim_install() {
         curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
         sudo rm -rf /opt/nvim
         sudo tar -C /opt -xzf nvim-linux64.tar.gz
-
-        echo "export PATH=$PATH:/opt/nvim-linux64/bin" >>~/.zshrc
+        if [ -f "$HOME/.zshrc" ]; then
+          echo "export PATH=$PATH:/opt/nvim-linux64/bin" >>~/.zshrc
+        fi
+        if [ -f "$HOME/.bashrc" ]; then
+          echo "export PATH=$PATH:/opt/nvim-linux64/bin" >>~/.bashrc
+        fi
+        if [ -f "$HOME/.config/fish/config.fish" ]; then
+          echo "set PATH /opt/nvim-linux64/bin $PATH" >> "$HOME/.config/fish/config.fish"
+        fi
+        
 
 }
 
