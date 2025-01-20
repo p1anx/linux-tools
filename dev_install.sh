@@ -180,6 +180,10 @@ function load_scripts {
   options+=("eza")
   scripts+=("eza/eza.sh")
   functions+=("eza_install")
+
+  options+=("yazi")
+  scripts+=("yazi/yazi.sh")
+  functions+=("yazi")
   # 加载所有脚本并定义函数
   for script in "${scripts[@]}"; do
     #    echo "$DIR/$script"

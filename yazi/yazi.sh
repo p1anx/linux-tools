@@ -1,8 +1,12 @@
 #!/bin/bash
-# yazi_install(){
-#
-#
-# }
+yazi_install(){
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  rustup update
+  git clone https://github.com/sxyazi/yazi.git
+  cd yazi
+  cargo build --release --locked
+  mv target/release/yazi target/release/ya /usr/local/bin/
+}
 
 yazi_plugins(){
   ya pack -a yazi-rs/plugins:full-border
@@ -33,7 +37,8 @@ yazi_flavors(){
   
 }
 yazi_config(){
-  tee -a ~/.zshrc <<EOF
+  if [ -f "~/.zshrc" ]; then
+    tee -a ~/.zshrc <<EOF
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -43,6 +48,25 @@ function y() {
 	rm -f -- "$tmp"
 }
 EOF
+  fi
+  if [ -f "~/.config/fish/config.fish" ]; then
+    tee -a ~/.config/fish/config.fish <<EOF
+function y
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		builtin cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end
+EOF
+  fi
 
 }
-yazi_flavors
+function yazi(){
+  yazi_install
+  yazi_config
+  yazi_plugins
+  yazi_flavors
+
+}
