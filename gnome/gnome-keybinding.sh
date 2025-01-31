@@ -10,17 +10,17 @@ custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybin
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
 binding='<Alt>d'
-command='/home/$USER/.config/rofi/scripts/launcher_t6'
+command='/home/$USER/.config/rofi/scripts/quickLauncher.sh'
 name='rofi launcher'
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
 binding='<Alt>w'
-command='/home/$USER/.config/rofi/scripts/window_t1.sh'
+command='/home/$USER/.config/rofi/scripts/quickWindow.sh'
 name='rofi window'
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2]
 binding='<Alt>e'
-command='/home/$USER/.config/rofi/scripts/quickedit.sh'
+command='/home/$USER/.config/rofi/scripts/quickeEdit.sh'
 name='quick edit'
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3]
 binding='<Alt>Return'
