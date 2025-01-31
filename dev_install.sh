@@ -134,23 +134,23 @@ function load_scripts {
   functions+=("tmux")
 
   options+=("nvim")
-  scripts+=("editor/nvim.sh")
+  scripts+=("nvim/nvim.sh")
   functions+=("nvim")
 
   options+=("vim")
-  scripts+=("editor/vim.sh")
+  scripts+=("vim/vim.sh")
   functions+=("vim")
 
   options+=("fzf")
-  scripts+=("terminal/fzf.sh")
+  scripts+=("fzf/fzf.sh")
   functions+=("fzf")
 
   options+=("zsh")
-  scripts+=("terminal/zsh.sh")
+  scripts+=("zsh/zsh.sh")
   functions+=("zsh")
 
   options+=("miniconda")
-  scripts+=("python/miniconda.sh")
+  scripts+=("conda/miniconda.sh")
   functions+=("miniconda")
 
   options+=("p10k")
@@ -162,11 +162,11 @@ function load_scripts {
   functions+=("fastfetch")
 
   options+=("frp")
-  scripts+=("network/frp.sh")
+  scripts+=("frp/frp.sh")
   functions+=("frp")
 
   options+=("rofi")
-  scripts+=("desktop/rofi/rofi.sh")
+  scripts+=("rofi/rofi.sh")
   functions+=("rofi")
 
   options+=("ssh")
