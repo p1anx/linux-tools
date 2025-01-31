@@ -63,10 +63,10 @@ function load_partial_scripts {
   local partial_scripts=()
   local partial_functions=()
 
-  partial_scripts+=("terminal/fzf.sh")
+  partial_scripts+=("fzf/fzf.sh")
   partial_functions+=("fzf")
 
-  partial_scripts+=("terminal/zsh.sh")
+  partial_scripts+=("zsh/zsh.sh")
   partial_functions+=("zsh")
 
   partial_scripts+=("tmux/tmux.sh")
@@ -75,13 +75,13 @@ function load_partial_scripts {
   partial_scripts+=("alacritty/alacritty.sh")
   partial_functions+=("alacritty")
 
-  partial_scripts+=("editor/nvim.sh")
+  partial_scripts+=("nvim/nvim.sh")
   partial_functions+=("nvim")
 
-  partial_scripts+=("editor/vim.sh")
+  partial_scripts+=("vim/vim.sh")
   partial_functions+=("vim")
 
-  partial_scripts+=("python/miniconda.sh")
+  partial_scripts+=("conda/miniconda.sh")
   partial_functions+=("miniconda")
 
   partial_scripts+=("p10k/p10k.sh")
@@ -125,8 +125,8 @@ function load_scripts {
   scripts+=("docker/docker.sh")
   functions+=("docker")
 
-  options+=("lazygit github")
-  scripts+=("git/lazygit.sh")
+  options+=("lazygit")
+  scripts+=("lazygit/lazygit.sh")
   functions+=("lazygit")
 
   options+=("tmux")
