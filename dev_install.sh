@@ -184,6 +184,19 @@ function load_scripts {
   options+=("yazi")
   scripts+=("yazi/yazi.sh")
   functions+=("yazi")
+
+  options+=("fish")
+  scripts+=("fish/fish.sh")
+  if grep -q "ubuntu" /etc/os-release; then
+    functions+=("fish_ubuntu")
+  elif grep -q "rocky" /etc/os-release; then
+    functions+=("fish_fedora")
+  elif grep -q "arch" /etc/os-release; then
+    functions+=("fish_arch")
+  else
+    echo "[error]The system is not supported"
+    exit 1
+  fi
   # 加载所有脚本并定义函数
   for script in "${scripts[@]}"; do
     #    echo "$DIR/$script"
