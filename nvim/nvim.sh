@@ -3,17 +3,17 @@ function nvim_install() {
   #================================================
   # nvim and lazyvim
   #================================================
-        curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+        curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
         sudo rm -rf /opt/nvim
-        sudo tar -C /opt -xzf nvim-linux64.tar.gz
+        sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
         if [ -f "$HOME/.zshrc" ]; then
-          echo "export PATH=$PATH:/opt/nvim-linux64/bin" >>~/.zshrc
+          echo "export PATH=$PATH:/opt/nvim-linux-x86_64/bin" >>~/.zshrc
         fi
         if [ -f "$HOME/.bashrc" ]; then
-          echo "export PATH=$PATH:/opt/nvim-linux64/bin" >>~/.bashrc
+          echo "export PATH=$PATH:/opt/nvim-linux-x86_64/bin" >>~/.bashrc
         fi
         if [ -f "$HOME/.config/fish/config.fish" ]; then
-          echo "set PATH /opt/nvim-linux64/bin $PATH" >> "$HOME/.config/fish/config.fish"
+          echo "set PATH /opt/nvim-linux-x86_64/bin $PATH" >> "$HOME/.config/fish/config.fish"
         fi
         
 
@@ -24,7 +24,7 @@ function nvim() {
     if grep -q "arch" /etc/os-release; then
       sudo pacman -S neovim --noconfirm
     else
-      if [ ! -e "/opt/nvim-linux64/bin/nvim" ]; then
+      if [ ! -e "/opt/nvim-linux-x86_64/bin/nvim" ]; then
         nvim_install
       else
         echo -e "\e[32m[ok]nvim is installed\e[0m"
@@ -35,8 +35,8 @@ function nvim() {
   rm -rf ~/.config/nvim
   git clone https://github.com/p1anx/nvim-xwj.git ~/.config/nvim
 
-  if [ -e "nvim-linux64.tar.gz" ]; then
-    sudo rm -rf nvim-linux64.tar.gz
+  if [ -e "nvim-linux-x86_64.tar.gz" ]; then
+    sudo rm -rf nvim-linux-x86_64.tar.gz
   fi
 
   echo "=================================="
