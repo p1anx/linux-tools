@@ -1,12 +1,14 @@
 #!/bin/bash
 local script_dir=$(dirname $(realpath $0))
 yazi_install(){
+  sudo apt install build-essential curl -y
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   rustup update
+  cd
   git clone https://github.com/sxyazi/yazi.git
   cd yazi
   cargo build --release --locked
-  mv target/release/yazi target/release/ya /usr/local/bin/
+  sudo mv target/release/yazi target/release/ya /usr/local/bin/
 }
 
 yazi_plugins(){
