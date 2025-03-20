@@ -1,4 +1,5 @@
 #!/bin/bash
+local script_dir=$(dirname $(realpath $0))
 yazi_install(){
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   rustup update
@@ -61,12 +62,13 @@ function y
 end
 EOF
   fi
+  mv $script_dir/init.lua $script_dir/yazi.toml $script_dir/keymap.toml $script_dir/theme.toml $HOME/.config/yazi
 
 }
 function yazi(){
   yazi_install
   yazi_config
   yazi_plugins
-  yazi_flavors
+ # yazi_flavors
 
 }
