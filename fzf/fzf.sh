@@ -11,12 +11,12 @@ function fzf() {
   # export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --margin=1 --padding=1"
   # EOF
 
-  if command -v fzf > /dev/null 2>&1; then
-      echo -e "\e[32m[ok]\e[0mfzf is installed"
-      return 0
-  else
-      echo -e "\e[33m[note]\e[0mfzf is installing..."
-  fi
+  # if command -v fzf > /dev/null 2>&1; then
+  #     echo -e "\e[32m[ok]\e[0mfzf is installed"
+  #     return 0
+  # else
+  #     echo -e "\e[33m[note]\e[0mfzf is installing..."
+  # fi
 
   if grep -q "arch" /etc/os-release; then
       sudo pacman -S fzf --noconfirm
