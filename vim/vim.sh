@@ -1,6 +1,6 @@
 #!/bin/bash
 function vim_install(){
-  if grep -q "ubuntu" /etc/os-release; then
+  if grep -q "debian" /etc/os-release; then
     sudo apt update
     sudo apt install vim -y
   elif grep -q "rocky" /etc/os-release; then
