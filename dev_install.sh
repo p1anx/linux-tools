@@ -187,6 +187,10 @@ function load_scripts {
 
   options+=("fish")
   scripts+=("fish/fish.sh")
+
+  options+=("qemu")
+  scripts+=("qemu/qemu.sh")
+
   if grep -q "debian" /etc/os-release; then
     functions+=("fish_ubuntu")
   elif grep -q "rocky" /etc/os-release; then
