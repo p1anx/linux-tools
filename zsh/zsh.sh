@@ -11,19 +11,17 @@ function oh_my_zsh() {
   sudo tee -a $HOME/.zshrc <<EOF
 # source /etc/profile
 #source ~/.bashrc
-function von(){
-  export http_proxy="http://127.0.0.1:10809"
-  export https_proxy="http://127.0.0.1:10809"
-  echo "v2ray proxy is ON"
+function pon(){
+  export http_proxy="http://127.0.0.1:7890"
+  export https_proxy="http://127.0.0.1:7890"
+  echo "proxy is ON"
 }
 
-function voff(){
+function poff(){
   unset https_proxy
   unset http_proxy
-  echo "v2ray proxy is OFF"
+  echo "proxy is OFF"
 }
-export http_proxy="http://127.0.0.1:7890"
-export https_proxy="http://127.0.0.1:7890"
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --margin=1 --padding=1"
 # Preview file content using bat (https://github.com/sharkdp/bat)
 export FZF_CTRL_T_OPTS="

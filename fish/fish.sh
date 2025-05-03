@@ -1,6 +1,6 @@
 #!/bin/bash
 function fish_ubuntu(){
-  sudo apt-add-repository ppa:fish-shell/release-3
+  sudo apt-add-repository ppa:fish-shell/release-4
   sudo apt update -y
   sudo apt install fish -y
 }

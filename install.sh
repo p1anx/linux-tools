@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# 打印菜单并处理用户选择
 function print_menu {
   local cols=3 # 设置列数
   local num_options=${#options[@]}
@@ -24,120 +23,198 @@ function print_menu {
 
 function handle_selection {
   for choice in "${choices[@]}"; do
-    case $choice in
-    1)
-      fzf
-      zsh
-      alacritty
-      p10k
-      tmux
-      nvim
-      vim
-      nerd_fonts
-      miniconda
-      # echo "2" | docker
-      # fastfetch
-      # lazygit
-      # github_ssh
-      ;;
-    2)
-      alacritty
-      ;;
-    3)
-      echo "2" | docker #"2" means to use mirror install docker in default
-      ;;
-    4)
-      lazygit
-      github_ssh
-      ;;
-    5)
-      nerd_fonts
-      ;;
-    6)
-      tmux
-      ;;
-    7)
-      nvim
-      ;;
-    8)
-      vim
-      ;;
-    9)
-      fzf
-      ;;
-    10)
-      zsh
-      ;;
-    11)
-      miniconda
-      ;;
-    12)
-      p10k
-      ;;
-    13)
-      fastfetch
-      ;;
-    14)
-      source
-      ;;
-    15)
-      frp
-      ;;
-    16)
-      sublime
-      ;;
-    17)
-      rofi
-      ;;
-    99)
-      echo "退出脚本。"
-      exit 0
-      ;;
-    *)
+    if [[ $choice =~ ^[0-9]+$ ]] && [ $choice -le ${#options[@]} ]; then
+      if [ "$choice" -eq 1 ]; then
+        # load_all_scripts # 调用加载所有脚本的函数
+        load_partial_scripts
+      else
+        script_name="${scripts[$((choice - 2))]}"
+        function_name="${functions[$((choice - 2))]}"
+        if [ -n "$script_name" ] && [ -n "$function_name" ]; then
+          source "$DIR/$script_name"
+          $function_name # 调用对应的函数
+        else
+          echo "无效选择：$choice"
+        fi
+      fi
+    else
       echo "无效选择：$choice"
-      ;;
-    esac
+    fi
   done
 }
 
-function main() {
+function load_all_scripts {
+  for i in "${!scripts[@]}"; do
+    script="${scripts[$i]}"
+    function_name="${functions[$i]}"
 
+    echo "加载脚本: $DIR/$script"
+    source "$DIR/$script"
+
+    if [ -n "$function_name" ]; then
+      echo "调用函数: $function_name"
+      $function_name # 调用对应的函数
+    fi
+  done
+}
+
+function load_partial_scripts {
+  # 定义需要加载的脚本和函数
+  local partial_scripts=()
+  local partial_functions=()
+
+  partial_scripts+=("fzf/fzf.sh")
+  partial_functions+=("fzf")
+
+  partial_scripts+=("zsh/zsh.sh")
+  partial_functions+=("zsh")
+
+  partial_scripts+=("tmux/tmux.sh")
+  partial_functions+=("tmux")
+
+  partial_scripts+=("alacritty/alacritty.sh")
+  partial_functions+=("alacritty")
+
+  partial_scripts+=("nvim/nvim.sh")
+  partial_functions+=("nvim")
+
+  partial_scripts+=("vim/vim.sh")
+  partial_functions+=("vim")
+
+  partial_scripts+=("conda/miniconda.sh")
+  partial_functions+=("miniconda")
+
+  partial_scripts+=("p10k/p10k.sh")
+  partial_functions+=("p10k")
+
+  partial_scripts+=("nerd_fonts.sh")
+  partial_functions+=("nerd_fonts")
+
+  # partial_scripts+=("git/lazygit.sh")
+  # partial_functions+=("lazygit")
+
+  for i in "${!partial_scripts[@]}"; do
+    script="${partial_scripts[$i]}"
+    function_name="${partial_functions[$i]}"
+
+    echo "加载脚本: $DIR/$script"
+    source "$DIR/$script"
+
+    if [ -n "$function_name" ]; then
+      echo "调用函数: $function_name"
+      $function_name # 调用对应的函数
+    fi
+  done
+}
+
+function load_scripts {
+  options=("default install") # 新增选项
+  scripts=()                  # 清空脚本数组
+  functions=()                # 清空函数数组
+
+  # 其他选项、脚本和函数的定义保持不变
+  options+=("alacritty")
+  scripts+=("alacritty/alacritty.sh")
+  functions+=("alacritty")
+
+  options+=("nerd fonts")
+  scripts+=("nerd_fonts.sh")
+  functions+=("nerd_fonts")
+
+  options+=("docker")
+  scripts+=("docker/docker.sh")
+  functions+=("docker")
+
+  options+=("lazygit")
+  scripts+=("lazygit-dir/lazygit.sh")
+  functions+=("lazygit")
+
+  options+=("tmux")
+  scripts+=("tmux/tmux.sh")
+  functions+=("tmux")
+
+  options+=("nvim")
+  scripts+=("nvim/nvim.sh")
+  functions+=("nvim")
+
+  options+=("vim")
+  scripts+=("vim/vim.sh")
+  functions+=("vim")
+
+  options+=("fzf")
+  scripts+=("fzf/fzf.sh")
+  functions+=("fzf")
+
+  options+=("zsh")
+  scripts+=("zsh/zsh.sh")
+  functions+=("zsh")
+
+  options+=("miniconda")
+  scripts+=("conda/miniconda.sh")
+  functions+=("miniconda")
+
+  options+=("p10k")
+  scripts+=("p10k/p10k.sh")
+  functions+=("p10k")
+
+  options+=("fastfetch")
+  scripts+=("terminal/fastfetch.sh")
+  functions+=("fastfetch")
+
+  options+=("frp")
+  scripts+=("frp/frp.sh")
+  functions+=("frp")
+
+  options+=("rofi")
+  scripts+=("rofi/rofi.sh")
+  functions+=("rofi")
+
+  options+=("ssh")
+  scripts+=("ssh_install.sh")
+  functions+=("ssh_install")
+
+  options+=("hyprland")
+  scripts+=("hyprland/hyprland_config.sh")
+  functions+=("hyprland_config")
+
+  options+=("eza")
+  scripts+=("eza/eza.sh")
+  functions+=("eza_install")
+
+  options+=("yazi")
+  scripts+=("yazi/yazi.sh")
+  functions+=("yazi")
+
+  options+=("fish")
+  scripts+=("fish/fish.sh")
+
+  options+=("qemu")
+  scripts+=("qemu/qemu.sh")
+  functions+=("qemu")
+
+  if grep -q "debian" /etc/os-release; then
+    functions+=("fish_ubuntu")
+  elif grep -q "rocky" /etc/os-release; then
+    functions+=("fish_fedora")
+  elif grep -q "arch" /etc/os-release; then
+    functions+=("fish_arch")
+  else
+    echo "[error]The system is not supported"
+    exit 1
+  fi
+  # 加载所有脚本并定义函数
+  for script in "${scripts[@]}"; do
+    #    echo "$DIR/$script"
+    source "$DIR/$script"
+  done
+}
+
+function main {
   DIR="$(pwd)"
-  options=("all install" "alacritty" "docker" "lazygit github" "nerd fonts"
-    "tmux" "neovim" "vim" "fzf" "zsh" "miniconda"
-    "p10k" "fastfetch" "source_cn" "frp" "sublime" "rofi")
-  source "$DIR"/dependency.sh
-  source "$DIR"/alacritty/alacritty.sh
-  source "$DIR"/docker/docker.sh
-  source "$DIR"/nerd_fonts.sh
-  source "$DIR"/tmux/tmux.sh
-  source "$DIR"/editor/nvim.sh
-  source "$DIR"/editor/vim.sh
-  source "$DIR"/editor/sublime.sh
-  source "$DIR"/terminal/fzf.sh
-  source "$DIR"/terminal/zsh.sh
-  source "$DIR"/terminal/fastfetch.sh
-  source "$DIR"/python/miniconda.sh
-  source "$DIR"/p10k/p10k.sh
-  source "$DIR"/git/lazygit.sh
-  source "$DIR"/git/github_ssh.sh
-  source "$DIR"/network/frp.sh
-  source "$DIR"/source.sh
-  source "$DIR"/desktop/rofi/rofi.sh
 
-  # 指定包含脚本的目录
-  # git_dir="$DIR/git"
-  # # 遍历并加载目录中的所有脚本文件
-  # for script in "$git_dir"/*.sh; do
-  #   if [ -f "$script" ]; then
-  #     echo "加载脚本: $script"
-  #     source "$script"
-  #   fi
-  # done
-
+  load_scripts
   print_menu
-  dependency
-  # 处理用户选择的函数
   handle_selection
 }
+
 main
