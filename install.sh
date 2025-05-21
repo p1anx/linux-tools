@@ -187,6 +187,7 @@ function load_scripts {
 
   options+=("fish")
   scripts+=("fish/fish.sh")
+  functions+=("fish")
 
   options+=("qemu")
   scripts+=("qemu/qemu.sh")
@@ -200,16 +201,16 @@ function load_scripts {
   scripts+=("grub/grub.sh")
   functions+=("grub")
 
-  if grep -q "debian" /etc/os-release; then
-    functions+=("fish_ubuntu")
-  elif grep -q "rocky" /etc/os-release; then
-    functions+=("fish_fedora")
-  elif grep -q "arch" /etc/os-release; then
-    functions+=("fish_arch")
-  else
-    echo "[error]The system is not supported"
-    exit 1
-  fi
+  # if grep -q "debian" /etc/os-release; then
+  #   functions+=("fish_ubuntu")
+  # elif grep -q "rocky" /etc/os-release; then
+  #   functions+=("fish_fedora")
+  # elif grep -q "arch" /etc/os-release; then
+  #   functions+=("fish_arch")
+  # else
+  #   echo "[error]The system is not supported"
+  #   exit 1
+  # fi
   # 加载所有脚本并定义函数
   for script in "${scripts[@]}"; do
     #    echo "$DIR/$script"
