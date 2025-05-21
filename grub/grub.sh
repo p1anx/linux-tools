@@ -6,5 +6,5 @@ function grub(){
   wget https://github.com/p1anx/linux-tools/releases/download/grub-theme/Elegant-wave-window-grub-themes.tar.xz
   tar -xf $script_dir/Elegant-wave-window-grub-themes.tar.xz
   cd "$script_dir/Elegant-wave-window-grub-themes/left-dark-4k"
-  bash install.sh
+  sudo bash install.sh
 }
