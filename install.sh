@@ -198,7 +198,7 @@ function load_scripts {
 
   options+=("grub")
   scripts+=("grub/grub.sh")
-  functions+=("grub.sh")
+  functions+=("grub")
 
   if grep -q "debian" /etc/os-release; then
     functions+=("fish_ubuntu")
