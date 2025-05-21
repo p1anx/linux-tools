@@ -28,3 +28,7 @@ and,
 export PATH=$HOME/.local/bin:$PATH
 ```
 
+# get directory of local script
+```shell
+local script_dir=$(dirname $(realpath $0))
+```

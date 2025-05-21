@@ -192,6 +192,14 @@ function load_scripts {
   scripts+=("qemu/qemu.sh")
   functions+=("qemu")
 
+  options+=("gtk-theme")
+  scripts+=("gtk-theme/gtk.sh")
+  functions+=("install_gtk")
+
+  options+=("grub")
+  scripts+=("grub/grub.sh")
+  functions+=("grub.sh")
+
   if grep -q "debian" /etc/os-release; then
     functions+=("fish_ubuntu")
   elif grep -q "rocky" /etc/os-release; then
