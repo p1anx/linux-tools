@@ -118,7 +118,7 @@ function load_scripts {
   functions+=("alacritty")
 
   options+=("nerd fonts")
-  scripts+=("nerd_fonts.sh")
+  scripts+=("nerd_fonts/nerd_fonts.sh")
   functions+=("nerd_fonts")
 
   options+=("docker")
@@ -201,6 +201,9 @@ function load_scripts {
   scripts+=("grub/grub.sh")
   functions+=("grub")
 
+  options+=("copyq")
+  scripts+=("copyq/copyq.sh")
+  functions+=("copyq")
   # if grep -q "debian" /etc/os-release; then
   #   functions+=("fish_ubuntu")
   # elif grep -q "rocky" /etc/os-release; then
