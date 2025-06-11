@@ -42,9 +42,9 @@ startup_mode = "Windowed" # "Maximized" "Fullscreen" "SimpleFullscreen"
 opacity = 1
 
 [cursor]
-style = { shape = "Underline", blinking = "Always" } #"Block" "Underline", "Beam"
+style = { shape = "Block", blinking = "Never" } #"Block" "Underline", "Beam"
 vi_mode_style = "None"
-blink_interval = 500
+# blink_interval = 500
 # blink_timeout = 0
 # thickness = 0.1
 
@@ -53,3 +53,6 @@ bindings = [
 { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
 { key = "L", mods = "Control|Shift", chars = "la" },
 ]
+[color]
+# cursor = {text = "#ffffff", cursor = "#17b978"}#green
+cursor = {text = "#ffffff", cursor = "#ff5722"} #orange
