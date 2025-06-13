@@ -11,4 +11,5 @@ function fcitx5_config() {
   cp $HOME/fcitx5-themes/* $HOME/.local/share/fcitx5/themes -r
   cp $script_dir $HOME/.config/ -r
   rm -rf $HOME/fcitx5-themes
+  echo "${GREEN}[ok] fcitx5 config${RESET}"
 }

@@ -12,9 +12,10 @@ function load_scripts_all() {
 
   # 其他选项、脚本和函数的定义保持不变
   options+=("fcitx5 all")
-  # scripts+=("fcitx5/*.sh")
   functions+=("fcitx5_all")
 
+  options+=("fzf all")
+  functions+=("fzf_all")
   # 加载所有脚本并定义函数
   # for script in "${scripts[@]}"; do
   #   #    echo "$INSTALL_DIR/$script"
