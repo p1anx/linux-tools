@@ -1,4 +1,7 @@
 #!/bin/bash
+source $SHELL_BASIC/basic.sh
+INSTALL_DIR=$(get_dir)
+echo "install dir = $INSTALL_DIR"
 
 function load_scripts_install() {
   options=()   # 新增选项
@@ -61,11 +64,12 @@ function handle_selection_install {
 }
 
 function main_install() {
-  INSTALL_DIR="$(pwd)"
+  # INSTALL_DIR=$(get_dir)
+  # echo "install $INSTALL_DIR"
 
   load_scripts_install
   print_menu_install
   handle_selection_install
 }
 
-main_install
+# main_install

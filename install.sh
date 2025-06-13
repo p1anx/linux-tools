@@ -1,4 +1,5 @@
 #!/bin/bash
+source $SHELL_BASIC/basic.sh
 
 function print_menu {
   local cols=3 # 设置列数

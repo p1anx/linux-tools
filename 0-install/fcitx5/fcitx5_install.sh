@@ -1,5 +1,5 @@
 #!/bin/bash
-function install_fcitx5() {
+function fcitx5_install() {
   sudo apt install fcitx5 -y
   sudo apt install fcitx5-chinese-addons -y
   sudo apt install fcitx5-material-color -y
