@@ -3,6 +3,7 @@ G_MAIN_DIR=$(dirname $(realpath $0))
 source $G_MAIN_DIR/shell_scripts/basic.sh
 source $G_MAIN_DIR/0-install/install.sh
 source $G_MAIN_DIR/1-config/config.sh
+source $G_MAIN_DIR/2-all/all.sh
 test_dir=$(get_dir)
 echo "main dir $test_dir"
 
@@ -23,6 +24,9 @@ if [[ "$#" -gt 0 ]]; then
   -v | --version)
     echo "v1.0.0"
     exit 0
+    ;;
+  -a | --all)
+    main_all
     ;;
   -i | --install)
     echo "run install function"
