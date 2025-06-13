@@ -6,6 +6,6 @@ function fzf_install() {
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install --all
   fi
-  echo "${GREEN}[ok] fcitx5 install${RESET}"
+  echo "${GREEN}[ok] fzf install${RESET}"
 
 }

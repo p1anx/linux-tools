@@ -1,7 +1,7 @@
 #!/bin/bash
-function fzf_confish() {
+function fzf_config() {
   if [ ! -f "$HOME/.zshrc" ]; then
-
+    touch $HOME/.zshrc
   fi
   cat <<EOF | tee -a $HOME/.zshrc $HOME/.bashrc
 fd() {
@@ -41,4 +41,5 @@ export FZF_ALT_C_OPTS="
 # source <(fzf --zsh)
 EOF
 
+  echo "${GREEN}[ok] fzf config${RESET}"
 }
