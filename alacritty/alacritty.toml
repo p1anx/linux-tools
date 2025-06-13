@@ -53,6 +53,6 @@ bindings = [
 { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
 { key = "L", mods = "Control|Shift", chars = "la" },
 ]
-[color]
-# cursor = {text = "#ffffff", cursor = "#17b978"}#green
-cursor = {text = "#ffffff", cursor = "#ff5722"} #orange
+[colors]
+cursor = {text = "#ffffff", cursor = "#17b978"}#green
+# cursor = {text = "#ffffff", cursor = "#ff5722"} #orange
