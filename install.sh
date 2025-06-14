@@ -1,4 +1,5 @@
 #!/bin/bash
+source "$(dirname "${BASH_SOURCE[0]}")/0-functions/load_functions.sh"
 
 function print_menu {
   local cols=3 # 设置列数
@@ -158,7 +159,7 @@ function load_scripts {
   functions+=("p10k")
 
   options+=("fastfetch")
-  scripts+=("terminal/fastfetch.sh")
+  scripts+=("fastfetch/fastfetch.sh")
   functions+=("fastfetch")
 
   options+=("frp")
@@ -169,9 +170,9 @@ function load_scripts {
   scripts+=("rofi/rofi.sh")
   functions+=("rofi")
 
-  options+=("ssh")
-  scripts+=("ssh_install.sh")
-  functions+=("ssh_install")
+  # options+=("ssh")
+  # scripts+=("ssh_install.sh")
+  # functions+=("ssh_install")
 
   options+=("hyprland")
   scripts+=("hyprland/hyprland_config.sh")
@@ -204,6 +205,10 @@ function load_scripts {
   options+=("copyq")
   scripts+=("copyq/copyq.sh")
   functions+=("copyq")
+
+  options+=("fcitx5")
+  scripts+=("fcitx5/fcitx5.sh")
+  functions+=("fcitx5")
   # if grep -q "debian" /etc/os-release; then
   #   functions+=("fish_ubuntu")
   # elif grep -q "rocky" /etc/os-release; then
@@ -227,6 +232,7 @@ function main {
   load_scripts
   print_menu
   handle_selection
+  echo "${GREEN}[ok] It's all compeleted!!!${RESET}"
 }
 
 main
