@@ -26,7 +26,6 @@ GTK_IM_MODULE=fcitx5
 QT_IM_MODULE=fcitx5
 XMODIFIERS=@im=fcitx5
 EOF
-  echo "${GREEN}[ok] fcitx5 install${RESET}"
   return 0
 }
 
@@ -44,11 +43,23 @@ function fcitx5_config() {
   cp $script_dir/config/* $HOME/.config/fcitx5/ -r
   rm -rf $HOME/fcitx5-themes
 
-  echo "${GREEN}[ok] fcitx5 config${RESET}"
   return 0
 }
 
 function fcitx5() {
   fcitx5_install
+  if [[ $? -eq 0 ]]; then
+    echo "${GREEN}[${OK}] fcitx5 install${RESET}"
+  else
+    echo "${RED}[${ERROR}] fcitx5 install${RESET}"
+    exit 1
+  fi
+
   fcitx5_config
+  if [[ $? -eq 0 ]]; then
+    echo "${GREEN}[${OK}] fcitx5 config${RESET}"
+  else
+    echo "${RED}[${ERROR}] fcitx5 config${RESET}"
+    exit 1
+  fi
 }

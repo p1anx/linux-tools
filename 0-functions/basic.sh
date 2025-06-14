@@ -15,6 +15,10 @@ RESET=$(tput sgr0)
 # echo "${GREEN}错误信息${RESET}"
 # echo "${RED}成功信息${RESET}"
 
+# status
+OK="ok"
+ERROR="bad"
+
 function get_dir() {
   echo "$(cd "$(dirname "${BASH_SOURCE[1]}")" >/dev/null 2>&1 && pwd)"
 }
