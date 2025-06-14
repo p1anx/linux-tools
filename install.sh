@@ -209,6 +209,10 @@ function load_scripts {
   options+=("fcitx5")
   scripts+=("fcitx5/fcitx5.sh")
   functions+=("fcitx5")
+
+  options+=("wezterm")
+  scripts+=("wezterm/wezterm.sh")
+  functions+=("wezterm")
   # if grep -q "debian" /etc/os-release; then
   #   functions+=("fish_ubuntu")
   # elif grep -q "rocky" /etc/os-release; then
