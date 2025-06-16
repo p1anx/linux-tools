@@ -32,3 +32,7 @@ export PATH=$HOME/.local/bin:$PATH
 ```shell
 local script_dir=$(dirname $(realpath $0))
 ```
+
+
+## wezterm
+It works on `Xorg` of `ubuntu`

@@ -1,12 +1,12 @@
 #!/bin/bash
-function custom_keybindings(){
+function custom_keybindings() {
   # 定义配置文件路径
   CONFIG_FILE="gnome_custom_keybinding.ini"
 
   # 创建配置文件内容
-  cat <<EOL > $CONFIG_FILE
+  cat <<EOL >$CONFIG_FILE
 [org/gnome/settings-daemon/plugins/media-keys]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/']
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
 binding='<Alt>d'
@@ -20,12 +20,18 @@ name='rofi window'
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2]
 binding='<Alt>e'
-command='/home/$USER/.config/rofi/scripts/quickeEdit.sh'
+command='/home/$USER/.config/rofi/scripts/quickEdit.sh'
 name='quick edit'
+
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3]
 binding='<Alt>Return'
-command='alacritty'
+command='kitty'
 name='open terminal'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4]
+binding='<Ctrl>F1'
+command='flameshot gui'
+name='flameshot'
 EOL
 
   # 使用 dconf 加载配置
@@ -36,7 +42,7 @@ EOL
 
 }
 
-function normal_keybindings(){
+function normal_keybindings() {
   gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Alt>1']"
   gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Alt>2']"
   gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Alt>3']"
@@ -52,5 +58,8 @@ function normal_keybindings(){
   gsettings set org.gnome.desktop.wm.keybindings begin-resize "['<Shift><Alt>r']"
   gsettings set org.gnome.desktop.wm.keybindings show-desktop "['<Super>d']"
 }
-normal_keybindings
-custom_keybindings
+function gnome_keybindings() {
+  normal_keybindings
+  custom_keybindings
+
+}
