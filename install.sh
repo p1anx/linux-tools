@@ -213,6 +213,10 @@ function load_scripts {
   options+=("wezterm")
   scripts+=("wezterm/wezterm.sh")
   functions+=("wezterm")
+
+  options+=("arm toolchain")
+  scripts+=("arm_toolchain/arm_toolchain.sh")
+  functions+=("arm_toolchain")
   # if grep -q "debian" /etc/os-release; then
   #   functions+=("fish_ubuntu")
   # elif grep -q "rocky" /etc/os-release; then
