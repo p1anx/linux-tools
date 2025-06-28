@@ -1,6 +1,6 @@
 #!/bin/bash
 function nodejs() {
-  if [[ ! command -v curl > /dev/null 2>&1 ]];then
+  if ! command -v curl >/dev/null 2>&1; then
     sudo apt install curl -y
   fi
   curl -o- https://fnm.vercel.app/install | bash
