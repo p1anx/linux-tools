@@ -27,7 +27,7 @@ function handle_selection {
     if [[ $choice =~ ^[0-9]+$ ]] && [ $choice -le ${#options[@]} ]; then
       if [ "$choice" -eq 1 ]; then
         # load_all_scripts # 调用加载所有脚本的函数
-        load_partial_scripts
+        load_default_scripts
       else
         script_name="${scripts[$((choice - 2))]}"
         function_name="${functions[$((choice - 2))]}"
@@ -59,7 +59,7 @@ function load_all_scripts {
   done
 }
 
-function load_partial_scripts {
+function load_default_scripts {
   # 定义需要加载的脚本和函数
   local partial_scripts=()
   local partial_functions=()
@@ -109,9 +109,9 @@ function load_partial_scripts {
 }
 
 function load_scripts {
-  options=("default install") # 新增选项
-  scripts=()                  # 清空脚本数组
-  functions=()                # 清空函数数组
+  options=("default") # 新增选项
+  scripts=()          # 清空脚本数组
+  functions=()        # 清空函数数组
 
   # 其他选项、脚本和函数的定义保持不变
   options+=("alacritty")
@@ -217,6 +217,10 @@ function load_scripts {
   options+=("arm toolchain")
   scripts+=("arm_toolchain/arm_toolchain.sh")
   functions+=("arm_toolchain")
+
+  options+=("nodejs")
+  scripts+=("nodejs/nodejs.sh")
+  functions+=("nodejs")
   # if grep -q "debian" /etc/os-release; then
   #   functions+=("fish_ubuntu")
   # elif grep -q "rocky" /etc/os-release; then
@@ -240,7 +244,7 @@ function main {
   load_scripts
   print_menu
   handle_selection
-  echo "${GREEN}[ok] It's all compeleted!!!${RESET}"
+  echo "${OK} It's all compeleted!!!${RESET}"
 }
 
 main

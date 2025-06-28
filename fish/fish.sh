@@ -34,7 +34,7 @@ function fish() {
   elif grep -q "arch" /etc/os-release; then
     fish_arch
   else
-    echo "[error]The system is not supported"
+    echo "${ERROR}The system is not supported${RESET}"
     exit 1
   fi
   fish_tools

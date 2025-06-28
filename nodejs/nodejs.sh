@@ -6,4 +6,3 @@ function nodejs() {
     exit 1
   fi
 }
-nodejs
