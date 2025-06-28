@@ -13,18 +13,18 @@ function fish_arch() {
   sudo pacman -Syy
   sudo pacman -S --noconfirm fish
 }
-function fish_tools() {
-  # curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-  # if [[ $? != 0 ]]; then
-  #   echo "${ERROR} failed to install fisher${RESET}"
-  #   exit 1
-  # fi
-  # fisher install jorgebucaran/nvm.fish
-  # if [[ $? != 0 ]]; then
-  #   echo "${ERROR} failed to install nvm.fish${RESET}"
-  #   exit 1
-  # fi
-}
+# function fish_tools() {
+# curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+# if [[ $? != 0 ]]; then
+#   echo "${ERROR} failed to install fisher${RESET}"
+#   exit 1
+# fi
+# fisher install jorgebucaran/nvm.fish
+# if [[ $? != 0 ]]; then
+#   echo "${ERROR} failed to install nvm.fish${RESET}"
+#   exit 1
+# fi
+# }
 
 function fish() {
   if grep -q "debian" /etc/os-release; then

@@ -1,10 +1,10 @@
-!#/bin/bash
+#!/bin/bash
 function fzf_install() {
   if grep -q "arch" /etc/os-release; then
     sudo pacman -S fzf --noconfirm
   else
-    git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-    $HOME/.fzf/install --all
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install --all
   fi
   return 0
 
@@ -13,7 +13,7 @@ function fzf_config() {
   if [ ! -f "$HOME/.zshrc" ]; then
     touch $HOME/.zshrc
   fi
-  cat <<EOF | tee -a $HOME/.zshrc $HOME/.bashrc
+  cat <<EOF | tee -a $HOME/.zshrc
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
@@ -61,7 +61,7 @@ function fzf() {
     exit 1
   fi
   echo "${OK} fzf install${RESET}"
-  fzf_config
+  # fzf_config
   if [[ $? != 0 ]]; then
     echo "${ERROR} failed to confg fzf${RESET}"
     exit 1
