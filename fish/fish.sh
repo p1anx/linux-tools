@@ -1,6 +1,6 @@
 #!/bin/bash
 function fish_ubuntu() {
-  sudo apt-add-repository ppa:fish-shell/release-4
+  sudo apt-add-repository ppa:fish-shell/release-4 -y
   sudo apt update -y
   sudo apt install fish -y
 }
@@ -14,11 +14,11 @@ function fish_arch() {
   sudo pacman -S --noconfirm fish
 }
 function fish_tools() {
-  curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-  if [[ $? != 0 ]]; then
-    echo "${ERROR} failed to install fisher${RESET}"
-    exit 1
-  fi
+  # curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+  # if [[ $? != 0 ]]; then
+  #   echo "${ERROR} failed to install fisher${RESET}"
+  #   exit 1
+  # fi
   # fisher install jorgebucaran/nvm.fish
   # if [[ $? != 0 ]]; then
   #   echo "${ERROR} failed to install nvm.fish${RESET}"
@@ -37,5 +37,5 @@ function fish() {
     echo "${ERROR}The system is not supported${RESET}"
     exit 1
   fi
-  fish_tools
+  # fish_tools
 }
