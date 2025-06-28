@@ -31,11 +31,11 @@ function rofi_config() {
 function rofi() {
   sudo apt install rofi -y
   # rofi_install
-  if $?; then
+  if [[ $? != 0 ]]; then
     echo "${ERROR}rofi install${RESET}"
   fi
   rofi_config
-  if $?; then
+  if [[ $? != 0 ]]; then
     echo "${ERROR}rofi config${RESET}"
   fi
 }
