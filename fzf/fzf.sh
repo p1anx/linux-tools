@@ -6,7 +6,7 @@ function fzf_install() {
     git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
     $HOME/.fzf/install --all
   fi
-  echo "${OK} fzf install${RESET}"
+  return 0
 
 }
 function fzf_config() {
@@ -50,11 +50,21 @@ export FZF_ALT_C_OPTS="
 # Set up fzf key bindings and fuzzy completion
 # source <(fzf --zsh)
 EOF
+  return 0
 
-  echo "${OK} fzf config${RESET}"
 }
 
 function fzf() {
   fzf_install
+  if [[ $? != 0 ]]; then
+    echo "${ERROR} failed to install fzf${RESET}"
+    exit 1
+  fi
+  echo "${OK} fzf install${RESET}"
   fzf_config
+  if [[ $? != 0 ]]; then
+    echo "${ERROR} failed to confg fzf${RESET}"
+    exit 1
+  fi
+  echo "${OK} fzf config${RESET}"
 }
