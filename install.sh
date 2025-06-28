@@ -64,11 +64,14 @@ function load_default_scripts {
   local partial_scripts=()
   local partial_functions=()
 
-  partial_scripts+=("fzf/fzf.sh")
-  partial_functions+=("fzf")
+  partial_scripts+=("fish/fish.sh")
+  partial_functions+=("fish")
 
   partial_scripts+=("zsh/zsh.sh")
   partial_functions+=("zsh")
+
+  partial_scripts+=("fzf/fzf.sh")
+  partial_functions+=("fzf")
 
   partial_scripts+=("tmux/tmux.sh")
   partial_functions+=("tmux")
@@ -88,8 +91,11 @@ function load_default_scripts {
   partial_scripts+=("p10k/p10k.sh")
   partial_functions+=("p10k")
 
-  partial_scripts+=("nerd_fonts.sh")
+  partial_scripts+=("nerd_fonts/nerd_fonts.sh")
   partial_functions+=("nerd_fonts")
+
+  partial_scripts+=("nodejs/nodejs.sh")
+  partial_functions+=("nodejs")
 
   # partial_scripts+=("git/lazygit.sh")
   # partial_functions+=("lazygit")
