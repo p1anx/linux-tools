@@ -64,6 +64,9 @@ function load_default_scripts {
   local partial_scripts=()
   local partial_functions=()
 
+  partial_scripts+=("alacritty/alacritty.sh")
+  partial_functions+=("alacritty")
+
   partial_scripts+=("fish/fish.sh")
   partial_functions+=("fish")
 
@@ -75,9 +78,6 @@ function load_default_scripts {
 
   partial_scripts+=("tmux/tmux.sh")
   partial_functions+=("tmux")
-
-  partial_scripts+=("alacritty/alacritty.sh")
-  partial_functions+=("alacritty")
 
   partial_scripts+=("nvim/nvim.sh")
   partial_functions+=("nvim")
