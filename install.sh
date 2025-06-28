@@ -255,14 +255,55 @@ function load_scripts {
   done
 }
 
+function show_help() {
+  cat <<EOF
+If input without options, start to install linux tools
+Usage:  [options]
+
+Options:
+    -h, --help        Display this help message
+    -v, --version     Display version information
+    -r, --requirement Install the requirement
+EOF
+}
+
 function main {
   DIR="$(pwd)"
 
-  requirement
+  # 主程序
+  if [ $# -eq 1 ]; then
+
+    case "$1" in
+    -h | --help)
+      show_help
+      exit 0
+      ;;
+    -v | --version)
+      echo "v1.0"
+      exit 0
+      ;;
+    -r | --requirement)
+      requirement
+      echo "${OK}requirement is installed${RESET}"
+      return 0
+      ;;
+      # 其他参数处理...
+    *)
+      echo "$0 -h, show help"
+      exit 1
+      ;;
+    esac
+  fi
+
+  # requirement
   load_scripts
   print_menu
   handle_selection
+  if $?; then
+    echo "${ERROR}error shows...${RESET}"
+    exit 1
+  fi
   echo "${OK} It's all compeleted!!!${RESET}"
 }
 
-main
+main $1
