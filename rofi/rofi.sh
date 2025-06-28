@@ -21,20 +21,21 @@ function rofi_install() {
   return 0
 }
 function rofi_config() {
-  git clone https://github.com/p1anx/rofi-themes.git $HOME/rofi-themes
-  bash $HOME/rofi-themes/setup.sh
-  rm -rf $HOME/rofi-themes
+  git clone https://github.com/p1anx/rofi-themes.git
+  cd rofi-themes || exit
+  bash setup.sh
+  cd .. && rm -rf rofi-themes
   return 0
 
 }
 function rofi() {
   sudo apt install rofi -y
   # rofi_install
-  if [[ $? != 0 ]]; then
+  if ! $?; then
     echo "${ERROR}rofi install${RESET}"
   fi
   rofi_config
-  if [[ $? != 0 ]]; then
+  if ! $?; then
     echo "${ERROR}rofi config${RESET}"
   fi
 }
