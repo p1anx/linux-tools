@@ -19,11 +19,11 @@ function fish_tools() {
     echo "${ERROR} failed to install fisher${RESET}"
     exit 1
   fi
-  fisher install jorgebucaran/nvm.fish
-  if [[ $? != 0 ]]; then
-    echo "${ERROR} failed to install nvm.fish${RESET}"
-    exit 1
-  fi
+  # fisher install jorgebucaran/nvm.fish
+  # if [[ $? != 0 ]]; then
+  #   echo "${ERROR} failed to install nvm.fish${RESET}"
+  #   exit 1
+  # fi
 }
 
 function fish() {
