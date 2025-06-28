@@ -49,9 +49,9 @@ function fcitx5_config() {
 function fcitx5() {
   fcitx5_install
   if [[ $? -eq 0 ]]; then
-    echo "${GREEN}[${OK}] fcitx5 install${RESET}"
+    echo "${OK} fcitx5 install${RESET}"
   else
-    echo "${RED}[${ERROR}] fcitx5 install${RESET}"
+    echo "${ERROR} fcitx5 install${RESET}"
     exit 1
   fi
 
