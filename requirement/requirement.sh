@@ -6,7 +6,7 @@ function ubuntu_requiremnet() {
   sudo /etc/init.d/ssh start
 
 }
-function dependency() {
+function requirement() {
 
   if grep -q "ubuntu" /etc/os-release; then
     ubuntu_requiremnet

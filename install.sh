@@ -1,5 +1,7 @@
 #!/bin/bash
+ROOT_DIR="$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)"
 source "$(dirname "${BASH_SOURCE[0]}")/0-functions/load_functions.sh"
+source ${ROOT_DIR}/requirement/requirement.sh
 
 function print_menu {
   local cols=3 # 设置列数
@@ -247,6 +249,7 @@ function load_scripts {
 function main {
   DIR="$(pwd)"
 
+  requirement
   load_scripts
   print_menu
   handle_selection
