@@ -99,6 +99,11 @@ function load_default_scripts {
   partial_scripts+=("nodejs/nodejs.sh")
   partial_functions+=("nodejs")
 
+  partial_scripts+=("gnome/gnome.sh")
+  partial_functions+=("gnome")
+
+  partial_scripts+=("rofi/rofi.sh")
+  partial_functions+=("rofi")
   # partial_scripts+=("git/lazygit.sh")
   # partial_functions+=("lazygit")
 
@@ -229,6 +234,10 @@ function load_scripts {
   options+=("nodejs")
   scripts+=("nodejs/nodejs.sh")
   functions+=("nodejs")
+
+  options+=("gnome")
+  scripts+=("gnome/gnome.sh")
+  functions+=("gnome")
   # if grep -q "debian" /etc/os-release; then
   #   functions+=("fish_ubuntu")
   # elif grep -q "rocky" /etc/os-release; then

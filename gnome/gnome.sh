@@ -1,4 +1,7 @@
 #!/bin/bash
+function gnome_extension() {
+  sudo apt install gnome-shell-extension-manager gnome-shell-extensions gnome-tweaks -y
+}
 function custom_keybindings() {
   # 定义配置文件路径
   CONFIG_FILE="gnome_custom_keybinding.ini"
@@ -50,8 +53,8 @@ function normal_keybindings() {
 
   gsettings set org.gnome.desktop.wm.keybindings activate-window-menu "['<Alt><Shift>v']"
   gsettings set org.gnome.desktop.wm.keybindings move-to-center "['<Alt>space']"
-  gsettings set org.gnome.desktop.wm.keybindings move-to-side-e "['<Alt>l']"
-  gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>s']"
+  # gsettings set org.gnome.desktop.wm.keybindings move-to-side-e "['<Alt>l']"
+  # gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>s']"
   gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Alt>m']"
   gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>q']"
   gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Alt>f']"
@@ -61,5 +64,11 @@ function normal_keybindings() {
 function gnome_keybindings() {
   normal_keybindings
   custom_keybindings
+
+}
+
+function gnome() {
+  gnome_keybindings
+  gnome_extension
 
 }

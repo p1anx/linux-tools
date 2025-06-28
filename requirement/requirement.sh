@@ -2,7 +2,7 @@
 function ubuntu_requiremnet() {
   sudo apt update
   sudo apt install -y libfuse2 # for appimage
-  sudo apt install -y build-essential curl wget git vim openssh-server
+  sudo apt install -y build-essential curl wget git vim openssh-server flameshot
   sudo /etc/init.d/ssh start
 
 }
