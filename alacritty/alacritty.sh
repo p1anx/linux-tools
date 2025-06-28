@@ -22,7 +22,7 @@ function alacritty_install() {
   git clone https://github.com/alacritty/alacritty.git $tmp_dir
   cd $tmp_dir
 
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   . "$HOME/.cargo/env"
   cargo build --release
 
