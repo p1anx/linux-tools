@@ -22,13 +22,14 @@ function rofi_install() {
 }
 function rofi_config() {
   git clone https://github.com/p1anx/rofi-themes.git $HOME/rofi-themes
-  bash $HOME/rorfi-themes/setup.sh
+  bash $HOME/rofi-themes/setup.sh
   rm -rf $HOME/rofi-themes
   return 0
 
 }
 function rofi() {
-  rofi_install
+  sudo apt install rofi -y
+  # rofi_install
   if [[ $? != 0 ]]; then
     echo "${ERROR}rofi install${RESET}"
   fi
