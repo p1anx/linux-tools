@@ -71,6 +71,7 @@ function fzf() {
     exit 1
   fi
   echo "${OK} fzf install${RESET}"
+  fzf_fish_config
   # fzf_config
   if [[ $? != 0 ]]; then
     echo "${ERROR} failed to confg fzf${RESET}"
