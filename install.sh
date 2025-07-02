@@ -238,6 +238,10 @@ function load_scripts {
   options+=("gnome")
   scripts+=("gnome/gnome.sh")
   functions+=("gnome")
+
+  options+=("bat")
+  scripts+=("bat/bat.sh")
+  functions+=("bat")
   # if grep -q "debian" /etc/os-release; then
   #   functions+=("fish_ubuntu")
   # elif grep -q "rocky" /etc/os-release; then

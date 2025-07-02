@@ -1,18 +1,10 @@
 #!/bin/bash
 
-function bat() {
-  if ! command -v cargo >/dev/null 2>&1; then
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-  fi
-  cargo install --locked bat
-
-}
 function ubuntu_requiremnet() {
   sudo apt update
   sudo apt install -y libfuse2 # for appimage
   sudo apt install -y build-essential curl wget git vim openssh-server flameshot fd-find
   sudo /etc/init.d/ssh start
-  bat
 }
 
 function requirement() {
