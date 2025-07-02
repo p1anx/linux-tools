@@ -9,6 +9,16 @@ function fzf_install() {
   return 0
 
 }
+function fzf_fish_config() {
+  if [ -f "$HOME/.config/fish/config.fish" ]; then
+    tee -a $HOME/.config/fish/config.fish <<EOF
+set PATH '$PATH:$HOME/.fzf/bin'
+# Set up fzf key bindings
+fzf --fish | source
+EOF
+  fi
+
+}
 function fzf_config() {
   if [ ! -f "$HOME/.zshrc" ]; then
     touch $HOME/.zshrc
