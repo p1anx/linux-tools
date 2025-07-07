@@ -303,7 +303,7 @@ function main {
   load_scripts
   print_menu
   handle_selection
-  if $?; then
+  if [[ $? != 0 ]]; then
     echo "${ERROR}error shows...${RESET}"
     exit 1
   fi
