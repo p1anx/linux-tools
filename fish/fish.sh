@@ -13,6 +13,20 @@ function fish_arch() {
   sudo pacman -Syy
   sudo pacman -S --noconfirm fish
 }
+function fish_config() {
+  if [[ -f $HOME/.config/fish/config.fish ]]; then
+    tee -a $HOME/.config/fish/config.fish <<EOF
+    # Install fisher if it isn't already
+if not functions -q fisher
+    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+    fish -c fisher
+end
+EOF
+
+  fi
+
+}
 # function fish_tools() {
 # curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 # if [[ $? != 0 ]]; then
@@ -37,5 +51,6 @@ function fish() {
     echo "${ERROR}The system is not supported${RESET}"
     exit 1
   fi
+  fish_config
   # fish_tools
 }
