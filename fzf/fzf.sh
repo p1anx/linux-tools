@@ -15,6 +15,27 @@ function fzf_fish_config() {
 set PATH '$PATH:$HOME/.fzf/bin'
 # Set up fzf key bindings
 fzf --fish | source
+set FZF_DEFAULT_OPTS "--height 40% --layout=reverse --border --margin=1 --padding=1"
+# Preview file content using bat (https://github.com/sharkdp/bat)
+
+set FZF_CTRL_T_OPTS "
+  --walker-skip .git,node_modules,target
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+# CTRL-Y to copy the command into clipboard using pbcopy
+
+set FZF_CTRL_R_OPTS "
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+
+# Print tree structure in the preview window
+set FZF_ALT_C_OPTS "
+  --walker-skip .git,node_modules,target
+  --preview 'tree -C {}'"
+function fd 
+  fdfind
+end
 EOF
   fi
 
