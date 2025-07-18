@@ -242,6 +242,10 @@ function load_scripts {
   options+=("bat")
   scripts+=("bat/bat.sh")
   functions+=("bat")
+
+  options+=("swayfx")
+  scripts+=("swayfx/swayfx.sh")
+  functions+=("swayfx")
   # if grep -q "debian" /etc/os-release; then
   #   functions+=("fish_ubuntu")
   # elif grep -q "rocky" /etc/os-release; then
