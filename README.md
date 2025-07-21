@@ -36,3 +36,18 @@ local script_dir=$(dirname $(realpath $0))
 
 ## wezterm
 It works on `Xorg` of `ubuntu`
+
+## Chromium 
+### For ubuntu
+```shell
+sudo snap install chromium
+```
+
+## thunderbird
+### For ubuntu
+```shell
+sudo snap install thunderbird
+```
+
+### thunderbird setup for QQ Mail
+[QQ Mail Setup Method](https://wx.mail.qq.com/list/readtemplate?name=app_intro.html#/agreement/authorizationCode)
