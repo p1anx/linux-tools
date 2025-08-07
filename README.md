@@ -51,3 +51,12 @@ sudo snap install thunderbird
 
 ### thunderbird setup for QQ Mail
 [QQ Mail Setup Method](https://wx.mail.qq.com/list/readtemplate?name=app_intro.html#/agreement/authorizationCode)
+
+
+
+
+## arm-gnu-toolchain
+### for arch
+```shell
+sudo pacman -S arm-none-eabi-gcc arm-none-eabi-gdb  arm-none-eabi-newlib 
+```
