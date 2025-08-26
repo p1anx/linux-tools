@@ -14,8 +14,6 @@ function docker_for_ubuntu() {
   # echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
   sudo apt-get update
   sudo apt-get install docker-ce docker-ce-cli containerd.io -y
-  sudo systemctl enable docker
-  sudo systemctl start docker
   echo "==============================="
   echo "docker for ubuntu is installed"
   echo "==============================="
@@ -29,12 +27,13 @@ function docker_for_rocky() {
   sudo sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.repos.d/docker-ce.repo
   sudo yum update
   sudo yum install docker-ce docker-ce-cli containerd.io -y
-  sudo systemctl enable docker
-  sudo systemctl start docker
   echo "==============================="
   echo "docker for rocky is installed"
   echo "==============================="
 
+}
+function docker_for_arch() {
+  sudo pacman -S docker --noconfirm
 }
 
 #config the proxy for docker
@@ -118,6 +117,8 @@ function docker() {
       docker_for_ubuntu
     elif grep -q "rocky" /etc/os-release; then
       docker_for_rocky
+    elif grep -q "arch" /etc/os-release; then
+      docker_for_arch
     else
       echo "The system is not supported"
       exit
@@ -133,6 +134,9 @@ function docker() {
     exit
   fi
   #for current user, add the docker group to run "docker" without "sudo"
+  sudo systemctl enable docker
+  sudo systemctl start docker
+
   sudo groupadd docker
   sudo usermod -aG docker $USER # after, maybe need to login out
   newgrp docker
